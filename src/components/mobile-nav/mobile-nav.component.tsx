@@ -9,7 +9,7 @@ type MobileNavProps = {
 const MobileNav = ({ open, close }: MobileNavProps) => {
   return (
     <Drawer open={open} onClose={close}>
-      <div style={{ width: 200 }}>
+      <div style={{ width: 200, paddingRight: 12 }}>
         <Sidebar close={close} />
       </div>
     </Drawer>
