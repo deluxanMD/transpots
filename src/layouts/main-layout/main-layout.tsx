@@ -1,3 +1,4 @@
+import Sidebar from '../../components/sidebar/sidebar.component'
 import Topbar from '../../components/topbar/topbar.component'
 import { Container, FirstColumn } from './main-layout.styles'
 import { Outlet } from 'react-router-dom'
@@ -7,12 +8,10 @@ const ThreeColLayout = () => {
     <>
       <Topbar />
       <Container container spacing={2}>
-        <FirstColumn size={1.5}>1st col</FirstColumn>
+        <FirstColumn size={1.5} sx={{ display: { xs: 'none', md: 'block' } }}>
+          <Sidebar />
+        </FirstColumn>
         <Outlet />
-        {/* <SecondColumn size={2.5}>
-        
-      </SecondColumn>
-      <ThirdColumn size={8}>3rd col</ThirdColumn> */}
       </Container>
     </>
   )

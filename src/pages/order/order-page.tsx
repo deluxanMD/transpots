@@ -5,10 +5,13 @@ import OrderDetails from './order-details/order-details.component'
 const OrderPage = () => {
   return (
     <>
-      <SecondColumn size={2.5} sx={{ height: '100vh' }}>
+      <SecondColumn
+        size={{ xs: 4, md: 2.5 }}
+        sx={{ height: '100vh', display: { xs: 'none', sm: 'block' } }}
+      >
         <OrderSelection />
       </SecondColumn>
-      <ThirdColumn size={8}>
+      <ThirdColumn size={8} sx={{ display: { xs: 'none', sm: 'block' } }}>
         <OrderDetails />
       </ThirdColumn>
     </>
