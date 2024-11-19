@@ -1,11 +1,8 @@
-import Button from '@mui/material/Button'
+import ThreeColLayout from './layouts/main-layout/main-layout'
+import MainRouter from './routers/MainRouter'
 
 function App() {
-  return (
-    <div className="flex items-center justify-center w-screen h-screen bg-black">
-      <Button variant="contained">Hello world</Button>
-    </div>
-  )
+  return <MainRouter />
 }
 
 export default App
