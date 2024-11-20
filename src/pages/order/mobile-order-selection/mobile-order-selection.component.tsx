@@ -10,7 +10,11 @@ const MobileOrderSelection = () => {
 
   return (
     <Box sx={{ height: '100vh', position: 'relative' }}>
-      {value?.order?.orderId === '' && <OrderSelection />}
+      {value?.order?.status === 'New' ? (
+        <OrderSelection />
+      ) : (
+        value?.order?.orderId === '' && <OrderSelection />
+      )}
       {value?.order?.orderId !== '' && (
         <Stack spacing={1}>
           <Stack

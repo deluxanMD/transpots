@@ -2,7 +2,7 @@ export type Order = {
   orderId: string
   loadId: string
   customer: string
-  status: 'Assigned' | 'Picked up' | 'Delivered'
+  status: 'New' | 'Assigned' | 'Picked up' | 'Delivered'
 }
 
 export type Tab = {
@@ -11,7 +11,16 @@ export type Tab = {
   // orders: Order[]
 }
 
-export const orders: Order[] = [
+export const newOrders: Order[] = [
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'New',
+  },
+]
+
+export const activeOrders: Order[] = [
   {
     orderId: '12345',
     loadId: 'LOAD01',
