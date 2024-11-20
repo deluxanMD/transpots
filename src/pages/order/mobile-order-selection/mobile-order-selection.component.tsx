@@ -1,10 +1,38 @@
-import { Paper } from '@mui/material'
+import { useContext } from 'react'
+import OrderDetails from '../order-details/order-details.component'
+import OrderSelection from '../order-selection/order-selection.component'
+import { OrderPageContext } from '../order-page.provider'
+import { Box, Stack, Typography } from '@mui/material'
+import { ArrowBack } from '@mui/icons-material'
 
 const MobileOrderSelection = () => {
+  const value = useContext(OrderPageContext)
+
   return (
-    <Paper elevation={4} sx={{ height: '100%' }}>
-      <p>MobileOrderSelection</p>
-    </Paper>
+    <Box sx={{ height: '100vh', position: 'relative' }}>
+      {value?.order?.orderId === '' && <OrderSelection />}
+      {value?.order?.orderId !== '' && (
+        <Stack spacing={1}>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ cursor: 'pointer' }}
+            onClick={() =>
+              value?.handleSelectOrder({
+                orderId: '',
+                loadId: '',
+                customer: '',
+                status: 'Assigned',
+              })
+            }
+          >
+            <ArrowBack />
+            <Typography>Go Back</Typography>
+          </Stack>
+          <OrderDetails />
+        </Stack>
+      )}
+    </Box>
   )
 }
 
