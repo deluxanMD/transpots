@@ -7,7 +7,7 @@ type KeyValueProps = {
 
 const KeyValue = ({ title, value }: KeyValueProps) => {
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction={{ xs: 'column', md: 'row' }}>
       <Typography>{title}:</Typography>
       <Typography fontWeight={700}>{value}</Typography>
     </Stack>

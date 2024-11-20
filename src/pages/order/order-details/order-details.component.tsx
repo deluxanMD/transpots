@@ -1,6 +1,5 @@
 import { Divider, Grid2, Paper, Typography } from '@mui/material'
-import React, { useContext } from 'react'
-import { OrderPageContext } from '../order-page.provider'
+import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
 import TabPanel from '../../../components/tab-panel/tab-panel.component'
@@ -8,7 +7,6 @@ import OrderDetailsCustomer from './order-details-customer/order-details-custome
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
 
 const OrderDetails = () => {
-  const value = useContext(OrderPageContext)
   const [tabsValue, setTabsValue] = React.useState(0)
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
@@ -24,13 +22,13 @@ const OrderDetails = () => {
       >
         <Divider sx={{ border: 0.6 }} />
         <Grid2 container>
-          <Grid2 size={7}>
+          <Grid2 size={{ xs: 6, sm: 7, md: 8 }}>
             <TabPanel value={tabsValue} index={0}>
               <OrderDetailsCustomer />
             </TabPanel>
           </Grid2>
           <Grid2
-            size={5}
+            size={{ xs: 6, sm: 5, md: 4 }}
             sx={{
               bgcolor: 'secondary.light',
               height: '100vh',

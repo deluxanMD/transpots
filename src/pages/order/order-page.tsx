@@ -29,7 +29,10 @@ const OrderPage = () => {
       <Grid2 size={8} sx={{ mt: 2, display: { xs: 'none', sm: 'block' } }}>
         <OrderDetails />
       </Grid2>
-      <Grid2 size={12} sx={{ display: { xs: 'block', sm: 'none' } }}>
+      <Grid2
+        size={12}
+        sx={{ p: 1, mt: 1, display: { xs: 'block', sm: 'none' } }}
+      >
         <MobileOrderSelection />
       </Grid2>
     </OrderPageProvider>
