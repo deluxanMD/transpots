@@ -6,20 +6,34 @@ import {
   OrderCardStatus,
 } from './order-card.styles'
 import { CheckCircleOutlineOutlined } from '@mui/icons-material'
-import { useContext, useMemo } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import { OrderPageContext } from '../../../pages/order/order-page.provider'
+import TranspotsAlert from '../../transpots-alert/transpots-alert.component'
 
 const OrderCard = (order: Order) => {
   const theme = useTheme()
   const value = useContext(OrderPageContext)
+  const [alertVisible, setAlertVisible] = useState(false)
 
   const isSelectedOrder = useMemo(
     () => value?.order?.orderId === order?.orderId,
     [order?.orderId, value?.order.orderId]
   )
 
+  const handleAlertOpen = () => {
+    setAlertVisible(true)
+  }
+
+  const handleAlertClose = () => {
+    setAlertVisible(false)
+  }
+
   return (
-    <OrderCardContainer onClick={() => value?.handleSelectOrder(order)}>
+    <OrderCardContainer
+      onClick={() => {
+        value?.handleSelectOrder(order)
+      }}
+    >
       <OrderCardContent
         style={{
           backgroundColor: isSelectedOrder
@@ -44,17 +58,37 @@ const OrderCard = (order: Order) => {
       <OrderCardStatus
         direction="row"
         alignItems="center"
+        justifyContent={order?.status === 'New' ? 'center' : 'flex-start'}
         spacing={1}
-        sx={{ bgcolor: 'secondary.light' }}
+        onClick={handleAlertOpen}
+        sx={{
+          bgcolor: order?.status === 'New' ? 'success.main' : 'secondary.light',
+        }}
       >
-        <CheckCircleOutlineOutlined
-          fontSize="small"
-          sx={{ color: 'primary.main' }}
-        />
-        <Typography variant="body2" fontWeight={500} color="secondary.main">
-          {order?.status}
-        </Typography>
+        {order?.status === 'New' ? (
+          <>
+            <Typography variant="body2" fontWeight={500} color="#fff">
+              Accept Order
+            </Typography>
+          </>
+        ) : (
+          <>
+            <CheckCircleOutlineOutlined
+              fontSize="small"
+              sx={{ color: 'primary.main' }}
+            />
+            <Typography variant="body2" fontWeight={500} color="secondary.main">
+              {order?.status}
+            </Typography>
+          </>
+        )}
       </OrderCardStatus>
+      <TranspotsAlert
+        open={alertVisible}
+        handleClose={handleAlertClose}
+        description="Are you sure you want to accept this order?"
+        submitBtnText="Accept"
+      />
     </OrderCardContainer>
   )
 }
