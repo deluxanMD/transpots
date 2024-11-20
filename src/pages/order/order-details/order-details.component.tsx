@@ -1,4 +1,4 @@
-import { Divider, Grid2, Paper, Typography } from '@mui/material'
+import { Button, Divider, Grid2, Paper, Stack, Typography } from '@mui/material'
 import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
@@ -47,6 +47,21 @@ const OrderDetails = () => {
           </Grid2>
         </Grid2>
       </BasicTabs>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        spacing={2}
+        my={1}
+        p={1}
+        borderTop={0.6}
+      >
+        <Button sx={{ bgcolor: 'primary.main', color: '#fff' }}>
+          Verify Order
+        </Button>
+        <Button sx={{ bgcolor: 'error.main', color: '#fff' }}>
+          Delete Order
+        </Button>
+      </Stack>
     </Paper>
   )
 }
