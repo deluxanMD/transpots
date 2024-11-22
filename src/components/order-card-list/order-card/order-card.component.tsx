@@ -60,7 +60,7 @@ const OrderCard = (order: Order) => {
         alignItems="center"
         justifyContent={order?.status === 'New' ? 'center' : 'flex-start'}
         spacing={1}
-        onClick={handleAlertOpen}
+        onClick={() => order?.status === 'New' && handleAlertOpen()}
         sx={{
           bgcolor: order?.status === 'New' ? 'success.main' : 'secondary.light',
         }}

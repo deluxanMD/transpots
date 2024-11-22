@@ -5,12 +5,22 @@ import { orderDetailsTabs } from './order-details.constant'
 import TabPanel from '../../../components/tab-panel/tab-panel.component'
 import OrderDetailsCustomer from './order-details-customer/order-details-customer.component'
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
+import OrderDetailsRate from './order-details-rate/order-details-rate.component'
 
 const OrderDetails = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
+  }
+
+  const renderTabPanel = (index: number) => {
+    switch (index) {
+      case 0:
+        return <OrderDetailsCustomer />
+      case 1:
+        return <OrderDetailsRate />
+    }
   }
 
   return (
@@ -23,8 +33,8 @@ const OrderDetails = () => {
         <Divider sx={{ border: 0.6 }} />
         <Grid2 container>
           <Grid2 size={{ xs: 6, sm: 7, md: 8 }}>
-            <TabPanel value={tabsValue} index={0}>
-              <OrderDetailsCustomer />
+            <TabPanel value={tabsValue} index={tabsValue}>
+              {renderTabPanel(tabsValue)}
             </TabPanel>
           </Grid2>
           <Grid2
