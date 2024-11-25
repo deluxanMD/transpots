@@ -1,4 +1,6 @@
 import { createTheme } from '@mui/material/styles'
+// import SFProDisplayRegular from '../assets/fonts/SF-Pro-Display-Regular.ttf'
+// import SFProDisplayBold from '../assets/fonts/SF-Pro-Display-Bold.ttf'
 
 export const theme = createTheme({
   palette: {
@@ -15,5 +17,8 @@ export const theme = createTheme({
     error: {
       main: '#E52222',
     },
+  },
+  typography: {
+    fontFamily: ['"SF Pro Display"'].join(','),
   },
 })
