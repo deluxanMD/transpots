@@ -21,18 +21,15 @@ const OrderPage = () => {
   return (
     <OrderPageProvider value={{ order: selectedOrder, handleSelectOrder }}>
       <Grid2
-        size={{ xs: 4, md: 2.5 }}
-        sx={{ mt: 2, display: { xs: 'none', sm: 'block' } }}
+        size={{ sm: 4, lg: 3 }}
+        sx={{ display: { xs: 'none', sm: 'block' } }}
       >
         <OrderSelection />
       </Grid2>
-      <Grid2 size={8} sx={{ mt: 2, display: { xs: 'none', sm: 'block' } }}>
+      <Grid2 size={8} sx={{ display: { xs: 'none', sm: 'block' } }}>
         <OrderDetails />
       </Grid2>
-      <Grid2
-        size={12}
-        sx={{ p: 1, mt: 1, display: { xs: 'block', sm: 'none' } }}
-      >
+      <Grid2 size={12} sx={{ display: { xs: 'block', sm: 'none' } }}>
         <MobileOrderSelection />
       </Grid2>
     </OrderPageProvider>

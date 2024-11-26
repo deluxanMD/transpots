@@ -7,7 +7,11 @@ export const CustomListItemButton = styled(ListItemButton)`
   &.Mui-selected {
     background-color: #2264e5 !important;
     color: #ffffff;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    span {
+      font-weight: 700;
+    }
   }
 `

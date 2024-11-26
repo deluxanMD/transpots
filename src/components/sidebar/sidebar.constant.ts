@@ -6,4 +6,5 @@ type SidebarObj = {
 export const sidebars: SidebarObj[] = [
   { label: 'Home', href: '/' },
   { label: 'Order', href: 'order' },
+  { label: 'Integrations', href: 'integrations' },
 ]
