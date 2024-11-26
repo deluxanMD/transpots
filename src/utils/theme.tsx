@@ -16,6 +16,9 @@ export const theme = createTheme({
       main: '#E52222',
     },
   },
+  shape: {
+    borderRadius: 10,
+  },
   typography: {
     fontFamily: ['"SF Pro Display"'].join(','),
     fontSize: 20,

@@ -9,7 +9,7 @@ const MobileOrderSelection = () => {
   const value = useContext(OrderPageContext)
 
   return (
-    <Box sx={{ height: '100vh', position: 'relative' }}>
+    <Box sx={{ position: 'relative' }}>
       {value?.order?.status === 'New' ? (
         <OrderSelection />
       ) : (
@@ -20,7 +20,7 @@ const MobileOrderSelection = () => {
           <Stack
             direction="row"
             spacing={1}
-            sx={{ cursor: 'pointer' }}
+            sx={{ cursor: 'pointer', alignItems: 'center' }}
             onClick={() =>
               value?.handleSelectOrder({
                 orderId: '',

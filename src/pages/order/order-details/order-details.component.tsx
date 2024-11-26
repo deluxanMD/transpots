@@ -1,4 +1,4 @@
-import { Button, Divider, Grid2, Paper, Stack, Typography } from '@mui/material'
+import { Button, Divider, Grid2, Stack, Typography } from '@mui/material'
 import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
@@ -14,55 +14,82 @@ const OrderDetails = () => {
   }
 
   return (
-    <Paper elevation={4} sx={{ pt: 2, pl: 2, height: '100%' }}>
-      <BasicTabs
-        tabs={orderDetailsTabs}
-        value={tabsValue}
-        handleChange={handleChange}
-      >
-        <Divider sx={{ border: 0.6 }} />
-        <Grid2 container>
-          <Grid2 size={{ xs: 6, sm: 7, md: 8 }}>
-            <TabPanel value={tabsValue} index={0}>
-              <OrderDetailsCustomer />
-            </TabPanel>
-          </Grid2>
-          <Grid2
-            size={{ xs: 6, sm: 5, md: 4 }}
-            sx={{
-              bgcolor: 'secondary.light',
-              height: '100vh',
-              overflow: 'hidden',
-            }}
-          >
-            <Typography
-              pt={2}
-              px={2}
-              fontWeight={700}
-              sx={{ color: 'secondary.dark' }}
+    <>
+      <div style={{ minHeight: '100vh' }}>
+        <BasicTabs
+          tabs={orderDetailsTabs}
+          value={tabsValue}
+          handleChange={handleChange}
+        >
+          <Divider sx={{ border: 0.6 }} />
+          <Grid2 container>
+            <Grid2 size={{ xs: 6, sm: 7, md: 8 }} p={2}>
+              <TabPanel value={tabsValue} index={0}>
+                <OrderDetailsCustomer />
+              </TabPanel>
+            </Grid2>
+            <Grid2
+              size={{ xs: 6, sm: 5, md: 4 }}
+              sx={{
+                bgcolor: 'secondary.light',
+                overflow: 'hidden',
+              }}
             >
-              Tracking
-            </Typography>
-            <OrderTracking />
+              <Typography
+                pt={2}
+                px={2}
+                fontWeight={700}
+                sx={{ color: 'secondary.dark' }}
+              >
+                Tracking
+              </Typography>
+              <OrderTracking />
+            </Grid2>
           </Grid2>
-        </Grid2>
-      </BasicTabs>
+        </BasicTabs>
+      </div>
       <Stack
         direction="row"
         justifyContent="center"
         spacing={2}
-        my={1}
         p={1}
         borderTop={0.6}
+        sx={{
+          position: 'sticky',
+          bottom: 0,
+          backgroundColor: 'Background',
+          borderBottomLeftRadius: 10,
+          borderBottomRightRadius: 10,
+        }}
       >
-        <Button sx={{ bgcolor: 'primary.main', color: '#fff' }}>
+        <Button
+          sx={{
+            bgcolor: 'primary.main',
+            color: '#fff',
+            borderRadius: '6px',
+            textTransform: 'capitalize',
+            fontWeight: 700,
+            paddingX: '12px',
+            paddingY: '6px',
+          }}
+        >
           Verify Order
         </Button>
-        <Button sx={{ bgcolor: 'error.main', color: '#fff' }}>
+        <Button
+          sx={{
+            bgcolor: 'error.main',
+            color: '#fff',
+            borderRadius: '6px',
+            textTransform: 'capitalize',
+            fontWeight: 700,
+            paddingX: '12px',
+            paddingY: '6px',
+          }}
+        >
           Delete Order
         </Button>
       </Stack>
-    </Paper>
+    </>
   )
 }
 

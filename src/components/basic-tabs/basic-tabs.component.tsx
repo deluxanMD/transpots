@@ -17,10 +17,23 @@ const BasicTabs = ({ tabs, value, handleChange, children }: BasicTabsProps) => {
           value={value}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons="auto"
+          sx={{
+            '& .MuiTabs-scrollButtons': {
+              display: 'none',
+            },
+            '& .Mui-selected': {
+              fontWeight: 700,
+            },
+          }}
         >
           {tabs.map((tab) => (
-            <MuiTab key={tab.label} label={tab.label} />
+            <MuiTab
+              key={tab.label}
+              label={tab.label}
+              sx={{
+                textTransform: 'capitalize',
+              }}
+            />
           ))}
         </Tabs>
       </Box>

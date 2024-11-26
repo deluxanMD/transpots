@@ -6,7 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* overflow: hidden; */
   background-color: #a0a0a0 !important;
-  min-height: 100vh;
+  /* min-height: 100vh !important; */
 }
 
 code {

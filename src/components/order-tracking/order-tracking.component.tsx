@@ -6,6 +6,8 @@ const OrderTracking = () => {
   return (
     <Timeline
       sx={{
+        minHeight: 'calc(100vh - 130px)',
+        overflow: 'hidden',
         [`& .${timelineItemClasses.root}:before`]: {
           flex: 0,
           padding: 0,

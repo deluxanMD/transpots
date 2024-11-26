@@ -1,4 +1,4 @@
-import { Paper, TextField } from '@mui/material'
+import { TextField } from '@mui/material'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { activeOrders, newOrders, tabs } from './order-selection.constant'
 import OrderCardList from '../../../components/order-card-list/order-card-list.component'
@@ -13,7 +13,7 @@ const OrderSelection = () => {
   }
 
   return (
-    <Paper elevation={4} sx={{ height: '100%', p: 2 }}>
+    <>
       <TextField
         type="text"
         placeholder="Search"
@@ -29,7 +29,7 @@ const OrderSelection = () => {
           <OrderCardList orders={activeOrders} />
         </TabPanel>
       </BasicTabs>
-    </Paper>
+    </>
   )
 }
 
