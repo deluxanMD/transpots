@@ -5,10 +5,10 @@ import {
   OrderCardContent,
   OrderCardStatus,
 } from './order-card.styles'
-import { CheckCircleOutlineOutlined } from '@mui/icons-material'
 import { useContext, useMemo, useState } from 'react'
 import { OrderPageContext } from '../../../pages/order/order-page.provider'
 import TranspotsAlert from '../../transpots-alert/transpots-alert.component'
+import CircleGreenRevised from '../../../assets/icons/Circle Green Revised.png'
 
 const OrderCard = (order: Order) => {
   const theme = useTheme()
@@ -44,7 +44,7 @@ const OrderCard = (order: Order) => {
       >
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="body2">Load #: </Typography>
-          <Typography>{order?.loadId}</Typography>
+          <Typography fontWeight={700}>{order?.loadId}</Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="body2">Order ID: </Typography>
@@ -67,17 +67,19 @@ const OrderCard = (order: Order) => {
       >
         {order?.status === 'New' ? (
           <>
-            <Typography variant="body2" fontWeight={500} color="#fff">
+            <Typography variant="body2" fontWeight={700} color="#fff">
               Accept Order
             </Typography>
           </>
         ) : (
           <>
-            <CheckCircleOutlineOutlined
-              fontSize="small"
-              sx={{ color: 'primary.main' }}
+            <img
+              src={CircleGreenRevised}
+              alt="check circle green"
+              width={20}
+              height={20}
             />
-            <Typography variant="body2" fontWeight={500} color="secondary.main">
+            <Typography variant="body2" fontWeight={700} color="secondary.main">
               {order?.status}
             </Typography>
           </>

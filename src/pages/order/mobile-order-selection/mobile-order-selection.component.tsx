@@ -9,11 +9,17 @@ const MobileOrderSelection = () => {
   const value = useContext(OrderPageContext)
 
   return (
-    <Box sx={{ position: 'relative' }}>
-      {value?.order?.status === 'New' ? (
-        <OrderSelection />
+    <>
+      {value?.order?.status === 'New' && value?.order?.orderId === '' ? (
+        <Box p={2}>
+          <OrderSelection />
+        </Box>
       ) : (
-        value?.order?.orderId === '' && <OrderSelection />
+        value?.order?.orderId === '' && (
+          <Box p={2}>
+            <OrderSelection />
+          </Box>
+        )
       )}
       {value?.order?.orderId !== '' && (
         <Stack spacing={1}>
@@ -30,13 +36,15 @@ const MobileOrderSelection = () => {
               })
             }
           >
-            <ArrowBack />
+            <Box px={1} pt={1}>
+              <ArrowBack />
+            </Box>
             <Typography>Go Back</Typography>
           </Stack>
           <OrderDetails />
         </Stack>
       )}
-    </Box>
+    </>
   )
 }
 

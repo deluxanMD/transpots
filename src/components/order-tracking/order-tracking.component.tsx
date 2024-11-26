@@ -6,7 +6,7 @@ const OrderTracking = () => {
   return (
     <Timeline
       sx={{
-        minHeight: 'calc(100vh - 130px)',
+        minHeight: 'calc(100vh - 100px)',
         overflow: 'hidden',
         [`& .${timelineItemClasses.root}:before`]: {
           flex: 0,
@@ -14,9 +14,10 @@ const OrderTracking = () => {
         },
       }}
     >
-      {orderTrackings.map((orderTracking) => (
+      {orderTrackings.map((orderTracking, index) => (
         <OrderTrackingItem
           key={`${orderTracking.status}${orderTracking.description}`}
+          isLast={orderTrackings.length === index + 1}
           {...orderTracking}
         />
       ))}

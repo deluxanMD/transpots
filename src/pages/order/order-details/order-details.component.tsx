@@ -21,7 +21,7 @@ const OrderDetails = () => {
           value={tabsValue}
           handleChange={handleChange}
         >
-          <Divider sx={{ border: 0.6 }} />
+          <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
           <Grid2 container>
             <Grid2 size={{ xs: 6, sm: 7, md: 8 }} p={2}>
               <TabPanel value={tabsValue} index={0}>

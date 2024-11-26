@@ -20,7 +20,7 @@ const TwoColumnLayout = ({ children }: { children: React.ReactNode }) => {
         </Paper>
       </Grid2>
       <Grid2 size={12} sx={{ display: { xs: 'block', sm: 'none' } }}>
-        <Paper elevation={4} sx={{ p: 2, minHeight: '100%' }}>
+        <Paper elevation={4} sx={{ minHeight: '100%' }}>
           {childrenArray[2]}
         </Paper>
       </Grid2>
