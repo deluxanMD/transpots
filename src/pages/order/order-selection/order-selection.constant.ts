@@ -33,6 +33,102 @@ export const activeOrders: Order[] = [
     customer: 'John',
     status: 'Picked up',
   },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
+  {
+    orderId: '12345',
+    loadId: 'LOAD01',
+    customer: 'Deluxan',
+    status: 'Assigned',
+  },
+  {
+    orderId: '23456',
+    loadId: 'LOAD02',
+    customer: 'John',
+    status: 'Picked up',
+  },
 ]
 
 export const tabs: Tab[] = [

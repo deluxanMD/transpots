@@ -1,10 +1,10 @@
 import OrderSelection from './order-selection/order-selection.component'
 import OrderDetails from './order-details/order-details.component'
-import { Grid2 } from '@mui/material'
 import MobileOrderSelection from './mobile-order-selection/mobile-order-selection.component'
 import OrderPageProvider from './order-page.provider'
 import { useState } from 'react'
 import { Order } from './order-selection/order-selection.constant'
+import TwoColumnLayout from '../../layouts/two-column-layout/two-column-layout'
 
 const OrderPage = () => {
   const [selectedOrder, setSelectedOrder] = useState<Order>({
@@ -20,21 +20,11 @@ const OrderPage = () => {
 
   return (
     <OrderPageProvider value={{ order: selectedOrder, handleSelectOrder }}>
-      <Grid2
-        size={{ xs: 4, md: 2.5 }}
-        sx={{ mt: 2, display: { xs: 'none', sm: 'block' } }}
-      >
+      <TwoColumnLayout>
         <OrderSelection />
-      </Grid2>
-      <Grid2 size={8} sx={{ mt: 2, display: { xs: 'none', sm: 'block' } }}>
         <OrderDetails />
-      </Grid2>
-      <Grid2
-        size={12}
-        sx={{ p: 1, mt: 1, display: { xs: 'block', sm: 'none' } }}
-      >
         <MobileOrderSelection />
-      </Grid2>
+      </TwoColumnLayout>
     </OrderPageProvider>
   )
 }

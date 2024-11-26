@@ -18,6 +18,7 @@ export type OrderTracking = {
   description?: string
   date?: string
   done: boolean
+  isLast?: boolean
 }
 
 export const orderTrackings: OrderTracking[] = [
