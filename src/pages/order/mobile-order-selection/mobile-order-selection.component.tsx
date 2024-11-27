@@ -25,7 +25,6 @@ const MobileOrderSelection = () => {
         <Stack spacing={1}>
           <Stack
             direction="row"
-            spacing={1}
             sx={{ cursor: 'pointer', alignItems: 'center' }}
             onClick={() =>
               value?.handleSelectOrder({

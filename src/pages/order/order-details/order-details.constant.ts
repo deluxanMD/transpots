@@ -1,9 +1,6 @@
-export type OrderDetailsTab = {
-  id: string
-  label: string
-}
+import { Tab } from '../../../types'
 
-export const orderDetailsTabs: OrderDetailsTab[] = [
+export const orderDetailsTabs: Tab[] = [
   { id: 'customer', label: 'Customer' },
   { id: 'rate', label: 'Rate' },
   { id: 'pickup', label: 'Pickup' },

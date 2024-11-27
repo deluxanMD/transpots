@@ -1,6 +1,6 @@
 import { Box, Tab as MuiTab, Tabs } from '@mui/material'
 import React from 'react'
-import { Tab } from '../../pages/order/order-selection/order-selection.constant'
+import { Tab } from '../../types'
 
 type BasicTabsProps = {
   tabs: Tab[]

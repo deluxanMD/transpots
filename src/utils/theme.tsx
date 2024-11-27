@@ -15,6 +15,9 @@ export const theme = createTheme({
     error: {
       main: '#E52222',
     },
+    common: {
+      white: '#FFFFFF',
+    },
   },
   shape: {
     borderRadius: 10,

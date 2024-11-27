@@ -1,14 +1,10 @@
+import { Tab } from '../../../types'
+
 export type Order = {
   orderId: string
   loadId: string
   customer: string
   status: 'New' | 'Assigned' | 'Picked up' | 'Delivered'
-}
-
-export type Tab = {
-  id: string
-  label: string
-  // orders: Order[]
 }
 
 export const newOrders: Order[] = [
