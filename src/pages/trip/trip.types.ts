@@ -5,9 +5,13 @@ export type Trip = {
   status: 'New' | 'Assigned' | 'Picked up' | 'Delivered' | 'Archived'
 }
 
+export type Task = 'hook' | 'pickup' | 'delivery' | 'drop'
+
+export type EquipmentType = 'Tractor' | 'Trailer' | 'Order'
+
 export type Equipment = {
   equipmentId: string
-  equipmentType: 'Trailer' | 'Tractor' | 'Order'
+  equipmentType: EquipmentType
 }
 
 export type Address = {
@@ -23,14 +27,23 @@ export type Company = {
 }
 
 export type TripDetail = {
-  task: 'hook' | 'pickup' | 'delivery' | 'drop'
+  task: Task
   equipment: Equipment
   date: string
   estimateDate: string
   company: Company
-  disabled?: boolean
 }
 
 export type Tractor = {
   tractorId: string
+}
+
+export type Trailer = {
+  trailerId: string
+}
+
+export type TripsError = {
+  open: boolean
+  message: string
+  variant: 'success' | 'error' | 'info'
 }

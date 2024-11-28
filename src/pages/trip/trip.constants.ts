@@ -1,5 +1,5 @@
 import { Tab } from '../../types'
-import { Tractor, Trip } from './trip.types'
+import { Tractor, Trailer } from './trip.types'
 
 export const tripTabs: Tab[] = [
   {
@@ -21,25 +21,9 @@ export const tractors: Tractor[] = [
   { tractorId: '23456' },
 ]
 
-export const activeTripTabs: Trip[] = [
-  {
-    tripId: '12345',
-    cusomer: 'ABC Company',
-    driverName: 'Shri Paramsothy',
-    status: 'Picked up',
-  },
-  {
-    tripId: '23456',
-    cusomer: 'ABC Company',
-    driverName: 'David Cho',
-    status: 'Picked up',
-  },
-  {
-    tripId: '34567',
-    cusomer: 'ABC Company',
-    driverName: 'Rajan Bala',
-    status: 'Picked up',
-  },
+export const trailers: Trailer[] = [
+  { trailerId: 'ABC12345' },
+  { trailerId: 'ABC23456' },
 ]
 
 export const tripTableHeaders: Tab[] = [
@@ -48,4 +32,5 @@ export const tripTableHeaders: Tab[] = [
   { id: 'date', label: 'Date/Time' },
   { id: 'est', label: 'Est Date/Time' },
   { id: 'company', label: 'Company' },
+  { id: 'action', label: 'Action' },
 ]

@@ -6,22 +6,25 @@ import {
   TypographyProps,
   useTheme,
 } from '@mui/material'
+import { ReactNode } from 'react'
 
 type TripDetailsTableCellProps = {
   disabled?: boolean
-  value1: string
+  value1?: string
   value2?: string
+  children?: ReactNode
 } & TypographyProps
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.light,
     color: theme.palette.common.white,
-    padding: '4px 12px',
+    // padding: '4px 12px',
   },
   [`&.${tableCellClasses.body}`]: {
+    backgroundColor: theme.palette.secondary.light,
     fontSize: 14,
-    padding: '4px 12px',
+    // padding: '4px 12px',
   },
 }))
 
@@ -30,12 +33,14 @@ const TripDetailsTableCell = ({
   value1,
   value2,
   minWidth,
+  children,
+  align,
   ...rest
 }: TripDetailsTableCellProps) => {
   const theme = useTheme()
 
   return (
-    <StyledTableCell sx={{ minWidth }}>
+    <StyledTableCell sx={{ minWidth }} align={align}>
       <Typography
         fontWeight={700}
         sx={{ color: disabled ? 'secondary.main' : 'InfoText' }}
@@ -51,6 +56,7 @@ const TripDetailsTableCell = ({
       >
         {value2}
       </Typography>
+      {children}
     </StyledTableCell>
   )
 }

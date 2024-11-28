@@ -4,6 +4,7 @@ import TabPanel from '../../../components/tab-panel/tab-panel.component'
 import { SyntheticEvent, useState } from 'react'
 import { tripTabs } from '../trip.constants'
 import TripTractorsList from '../trip-tractors-list/trip-tractors-list'
+import TripTrailersList from '../trip-trailers-list/trip-trailers-list'
 
 const TripSelection = () => {
   const [tabsValue, setTabsValue] = useState(0)
@@ -26,7 +27,7 @@ const TripSelection = () => {
           <TripTractorsList />
         </TabPanel>
         <TabPanel value={tabsValue} index={1}>
-          {/* <OrderCardList orders={activeOrders} /> */}
+          <TripTrailersList />
         </TabPanel>
       </BasicTabs>
     </>

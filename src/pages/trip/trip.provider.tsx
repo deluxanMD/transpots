@@ -1,10 +1,11 @@
 import React, { createContext } from 'react'
-import { Tractor } from './trip.types'
+import { Tractor, Trailer } from './trip.types'
 
 export type TripProviderValue = {
-  // trip: Trip
   tractor: Tractor
+  trailer: Trailer
   handleSelectTractor: (tractor: Tractor) => void
+  handleSelectTrailer: (trailer: Trailer) => void
 }
 
 type TripProviderProps = {
