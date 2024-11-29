@@ -58,10 +58,8 @@ const OrderDetails = () => {
         </BasicTabs>
       </div>
       <ActionButtons
-        primaryBtnText="Verify Order"
-        dangerBtnText="Delete Order"
-        handlePrimaryBtn={handleVerifyOrder}
-        handleDangerBtn={handleDeleteOrder}
+        firstBtnProps={{ title: 'Verify Order', onClick: handleVerifyOrder }}
+        secondBtnProps={{ title: 'Delete Order', onClick: handleDeleteOrder }}
       />
     </>
   )

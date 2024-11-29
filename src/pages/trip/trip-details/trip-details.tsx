@@ -4,11 +4,11 @@ import TripDetailsTable from './trip-details-table/trip-details-table'
 import SelectDriver from '../../../components/select-driver/select-driver.component'
 
 const TripDetails = () => {
-  const handleEditTrip = () => {
+  const handleCancel = () => {
     console.log('Edit Trip')
   }
 
-  const handleDeleteTrip = () => {
+  const handleSend = () => {
     console.log('Delete Trip')
   }
 
@@ -23,10 +23,16 @@ const TripDetails = () => {
         </div>
       </Stack>
       <ActionButtons
-        primaryBtnText="Edit Trip"
-        dangerBtnText="Delete Trip"
-        handlePrimaryBtn={handleEditTrip}
-        handleDangerBtn={handleDeleteTrip}
+        firstBtnProps={{
+          title: 'Cancel',
+          onClick: handleCancel,
+          bgColor: 'secondary.main',
+        }}
+        secondBtnProps={{
+          title: 'Send to Driver',
+          onClick: handleSend,
+          bgColor: 'primary.main',
+        }}
       />
     </Stack>
   )

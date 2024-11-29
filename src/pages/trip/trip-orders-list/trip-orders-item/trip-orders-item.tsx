@@ -9,13 +9,12 @@ import { formatAddress } from '../../trip.utils'
 import RightArrowCircle from '../../../../assets/icons/RightArrowCircle.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addOrderItem } from '../../../../store/trips/trips.slice'
-import { useMemo } from 'react'
 import { RootState } from '../../../../store'
 
 const TripOrdersItem = ({ orderId, orders }: Order) => {
   const rows = useSelector((state: RootState) => state.trips.rows)
   const dispatch = useDispatch()
-  console.log(rows)
+
   const handleAddOrderItem = (orderItem: TripDetail) => {
     dispatch(addOrderItem({ orderItem }))
   }
@@ -31,9 +30,13 @@ const TripOrdersItem = ({ orderId, orders }: Order) => {
           <OrderItemContainer
             key={`${orderId}_${index}`}
             sx={{
-              bgcolor:
-                order.task === 'pickup' ? 'primary.light' : 'success.light',
+              bgcolor: isSelected
+                ? 'secondary.light'
+                : order.task === 'pickup'
+                  ? 'primary.light'
+                  : 'success.light',
               borderBottomColor: 'secondary.main',
+              opacity: isSelected ? '60%' : '100%',
             }}
           >
             <Stack

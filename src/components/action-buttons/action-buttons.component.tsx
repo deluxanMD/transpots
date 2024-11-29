@@ -1,17 +1,13 @@
 import { Button, ButtonProps, Stack } from '@mui/material'
 
 type ActionButtonsProps = {
-  primaryBtnText: string
-  dangerBtnText: string
-  handlePrimaryBtn: () => void
-  handleDangerBtn: () => void
-} & ButtonProps
+  firstBtnProps: { bgColor?: string } & ButtonProps
+  secondBtnProps: { bgColor?: string } & ButtonProps
+}
 
 const ActionButtons = ({
-  primaryBtnText,
-  dangerBtnText,
-  handlePrimaryBtn,
-  handleDangerBtn,
+  firstBtnProps,
+  secondBtnProps,
 }: ActionButtonsProps) => {
   return (
     <Stack
@@ -30,31 +26,31 @@ const ActionButtons = ({
     >
       <Button
         sx={{
-          bgcolor: 'primary.main',
-          color: '#fff',
+          bgcolor: firstBtnProps.bgColor ?? 'primary.main',
+          color: 'common.white',
           borderRadius: '6px',
           textTransform: 'capitalize',
           fontWeight: 700,
           paddingX: '12px',
           paddingY: '6px',
         }}
-        onClick={handlePrimaryBtn}
+        onClick={firstBtnProps.onClick}
       >
-        {primaryBtnText}
+        {firstBtnProps.title}
       </Button>
       <Button
         sx={{
-          bgcolor: 'error.main',
-          color: '#fff',
+          bgcolor: secondBtnProps.bgColor ?? 'error.main',
+          color: 'common.white',
           borderRadius: '6px',
           textTransform: 'capitalize',
           fontWeight: 700,
           paddingX: '12px',
           paddingY: '6px',
         }}
-        onClick={handleDangerBtn}
+        onClick={secondBtnProps.onClick}
       >
-        {dangerBtnText}
+        {secondBtnProps.title}
       </Button>
     </Stack>
   )
