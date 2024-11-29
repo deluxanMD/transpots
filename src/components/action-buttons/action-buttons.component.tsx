@@ -25,6 +25,7 @@ const ActionButtons = ({
       }}
     >
       <Button
+        {...firstBtnProps}
         sx={{
           bgcolor: firstBtnProps.bgColor ?? 'primary.main',
           color: 'common.white',
@@ -39,6 +40,7 @@ const ActionButtons = ({
         {firstBtnProps.title}
       </Button>
       <Button
+        {...secondBtnProps}
         sx={{
           bgcolor: secondBtnProps.bgColor ?? 'error.main',
           color: 'common.white',

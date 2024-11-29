@@ -2,8 +2,12 @@ import { Stack } from '@mui/material'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
 import TripDetailsTable from './trip-details-table/trip-details-table'
 import SelectField from '../../../components/select-field/select-field.component'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../store'
 
 const TripDetails = () => {
+  const rows = useSelector((state: RootState) => state.trips.rows)
+
   const handleCancel = () => {
     console.log('Edit Trip')
   }
@@ -25,18 +29,20 @@ const TripDetails = () => {
           <TripDetailsTable />
         </div>
       </Stack>
-      <ActionButtons
-        firstBtnProps={{
-          title: 'Cancel',
-          onClick: handleCancel,
-          bgColor: 'secondary.main',
-        }}
-        secondBtnProps={{
-          title: 'Send to Driver',
-          onClick: handleSend,
-          bgColor: 'primary.main',
-        }}
-      />
+      {rows.length > 0 && (
+        <ActionButtons
+          firstBtnProps={{
+            title: 'Cancel',
+            onClick: handleCancel,
+            bgColor: 'secondary.main',
+          }}
+          secondBtnProps={{
+            title: 'Send to Driver',
+            onClick: handleSend,
+            bgColor: 'primary.main',
+          }}
+        />
+      )}
     </Stack>
   )
 }

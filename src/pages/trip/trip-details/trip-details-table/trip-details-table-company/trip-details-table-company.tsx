@@ -25,7 +25,13 @@ const TripDetailsTableCompany = (company: Company) => {
   return (
     <StyledTableCell sx={{ minWidth: 260 }}>
       <Stack direction="row" spacing={1}>
-        <img src={Edit} alt="Edit Icon" width={46} height={46} />
+        <img
+          src={Edit}
+          alt="Edit Icon"
+          width={46}
+          height={46}
+          style={{ cursor: 'pointer' }}
+        />
         <Stack>
           <Typography
             sx={{

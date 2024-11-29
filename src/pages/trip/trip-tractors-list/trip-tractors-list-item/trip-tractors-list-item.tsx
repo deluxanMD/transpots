@@ -25,12 +25,10 @@ const TripTractorsListItem = ({ tractorId }: Tractor) => {
       sx={{
         bgcolor: 'secondary.light',
         opacity: isSelected ? '60%' : '100%',
-        cursor: 'pointer',
       }}
       direction="row"
       alignItems="center"
       justifyContent="space-between"
-      onClick={handleTractorSelection}
     >
       <Stack>
         <Typography fontWeight={700}>{tractorId}</Typography>
@@ -43,6 +41,7 @@ const TripTractorsListItem = ({ tractorId }: Tractor) => {
           width={24}
           height={24}
           style={{ cursor: 'pointer' }}
+          onClick={handleTractorSelection}
         />
       )}
     </ListItemContainer>

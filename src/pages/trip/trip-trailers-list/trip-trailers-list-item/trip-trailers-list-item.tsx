@@ -48,12 +48,10 @@ const TripTrailersListItem = ({ trailerId }: Trailer) => {
         sx={{
           bgcolor: 'secondary.light',
           opacity: isSelected ? '60%' : '100%',
-          cursor: 'pointer',
         }}
         direction="row"
         alignItems="center"
         justifyContent="space-between"
-        onClick={handleTrailerSelection}
       >
         <Stack>
           <Typography fontWeight={700}>{trailerId}</Typography>
@@ -66,6 +64,7 @@ const TripTrailersListItem = ({ trailerId }: Trailer) => {
             width={24}
             height={24}
             style={{ cursor: 'pointer' }}
+            onClick={handleTrailerSelection}
           />
         )}
       </ListItemContainer>

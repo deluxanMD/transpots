@@ -39,16 +39,29 @@ const TripDetailsTableAction = ({
     <TripDetailsTableCell align="right" minWidth={150}>
       <Stack spacing={1} direction="row" justifyContent="flex-end">
         {currentRow.task === 'pickup' && prevRow.task === 'pickup' && (
-          <img src={UpArrow} alt="action icon" width={40} height={27} />
+          <img
+            src={UpArrow}
+            alt="action icon"
+            width={40}
+            height={27}
+            style={{ cursor: 'pointer' }}
+          />
         )}
         {currentRow.task === 'pickup' && nextRow.task === 'pickup' && (
-          <img src={DownArrow} alt="action icon" width={40} height={27} />
+          <img
+            src={DownArrow}
+            alt="action icon"
+            width={40}
+            height={27}
+            style={{ cursor: 'pointer' }}
+          />
         )}
         <img
           src={Close}
           alt="action icon"
           width={27}
           height={27}
+          style={{ cursor: 'pointer' }}
           onClick={() => {
             if (currentRow.task === 'hook' || currentRow.task === 'drop') {
               handleCloseVehicle(

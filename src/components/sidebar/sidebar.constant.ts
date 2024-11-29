@@ -7,5 +7,5 @@ export const sidebars: SidebarObj[] = [
   { label: 'Home', href: '/' },
   { label: 'Order', href: 'order' },
   { label: 'Trip', href: 'trip' },
-  { label: 'Integrations', href: 'integrations' },
+  { label: 'Integration', href: 'integration' },
 ]
