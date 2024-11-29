@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {
   EquipmentType,
+  Order,
   Task,
   Tractor,
   Trailer,
@@ -11,16 +12,18 @@ import {
   addTractorFixture,
   addTrailerDropFixture,
   addTrailerHookFixture,
+  ordersFixture,
   tractorsFixture,
   trailersFixture,
 } from './trips.fixtures'
 import { insertInto } from '../../utils/store'
-import { removeHookAndDrop } from './trips.utils'
+import { didAlreadyExist, removeHookAndDrop } from './trips.utils'
 
 export interface TripsState {
   rows: TripDetail[]
   tractors: Tractor[]
   trailers: Trailer[]
+  orders: Order[]
   error: TripsError
 }
 
@@ -28,6 +31,7 @@ const initialState: TripsState = {
   rows: [],
   tractors: tractorsFixture,
   trailers: trailersFixture,
+  orders: ordersFixture,
   error: {
     open: false,
     message: '',
@@ -55,6 +59,33 @@ export const tripsSlice = createSlice({
 
       state.rows = insertInto(1, state.rows, trailerHook)
       state.rows = insertInto(2, state.rows, trailerDrop)
+    },
+    addOrder: (state, { payload: { orders } }: PayloadAction<Order>) => {
+      const trailerIndex = state.rows
+        .map((row) => row.equipment.equipmentType)
+        .indexOf('Trailer')
+
+      if (!didAlreadyExist(state, orders[0])) {
+        state.rows = insertInto(trailerIndex + 1, state.rows, orders[0])
+      }
+
+      if (!didAlreadyExist(state, orders[1])) {
+        state.rows = insertInto(trailerIndex + 2, state.rows, orders[1])
+      }
+
+      if (!didAlreadyExist(state, orders[2])) {
+        state.rows = insertInto(trailerIndex + 3, state.rows, orders[2])
+      }
+    },
+    addOrderItem: (
+      state,
+      { payload: { orderItem } }: PayloadAction<{ orderItem: TripDetail }>
+    ) => {
+      const trailerIndex = state.rows
+        .map((row) => row.equipment.equipmentType)
+        .indexOf('Trailer')
+
+      state.rows = insertInto(trailerIndex + 1, state.rows, orderItem)
     },
     makeError: (
       state,
@@ -102,7 +133,14 @@ export const tripsSlice = createSlice({
   },
 })
 
-export const { addTractor, addTrailer, makeError, clearError, closeVehicle } =
-  tripsSlice.actions
+export const {
+  addTractor,
+  addTrailer,
+  addOrder,
+  addOrderItem,
+  makeError,
+  clearError,
+  closeVehicle,
+} = tripsSlice.actions
 
 export default tripsSlice.reducer

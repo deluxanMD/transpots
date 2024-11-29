@@ -12,6 +12,7 @@ export type EquipmentType = 'Tractor' | 'Trailer' | 'Order'
 export type Equipment = {
   equipmentId: string
   equipmentType: EquipmentType
+  orderItemId?: string
 }
 
 export type Address = {
@@ -40,6 +41,11 @@ export type Tractor = {
 
 export type Trailer = {
   trailerId: string
+}
+
+export type Order = {
+  orderId: string
+  orders: TripDetail[]
 }
 
 export type TripsError = {

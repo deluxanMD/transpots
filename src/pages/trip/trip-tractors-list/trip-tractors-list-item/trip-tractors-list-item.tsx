@@ -1,14 +1,13 @@
 import { Stack, Typography } from '@mui/material'
 import { Tractor } from '../../trip.types'
-import { TractorsListItemContainer } from './trip-tractors-list-item.styles'
 import RightArrowCircle from '../../../../assets/icons/RightArrowCircle.png'
 import { useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTractor } from '../../../../store/trips/trips.slice'
 import { RootState } from '../../../../store'
+import { ListItemContainer } from '../../trip.styles'
 
 const TripTractorsListItem = ({ tractorId }: Tractor) => {
-  // const value = useContext(TripContext)
   const rows = useSelector((state: RootState) => state.trips.rows)
   const dispatch = useDispatch()
 
@@ -22,7 +21,7 @@ const TripTractorsListItem = ({ tractorId }: Tractor) => {
   }
 
   return (
-    <TractorsListItemContainer
+    <ListItemContainer
       sx={{
         bgcolor: 'secondary.light',
         opacity: isSelected ? '60%' : '100%',
@@ -46,7 +45,7 @@ const TripTractorsListItem = ({ tractorId }: Tractor) => {
           style={{ cursor: 'pointer' }}
         />
       )}
-    </TractorsListItemContainer>
+    </ListItemContainer>
   )
 }
 

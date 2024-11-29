@@ -1,4 +1,4 @@
-import { Task } from '../../pages/trip/trip.types'
+import { Task, TripDetail } from '../../pages/trip/trip.types'
 import { TripsState } from './trips.slice'
 
 export const removeHookAndDrop = (
@@ -15,4 +15,10 @@ export const removeHookAndDrop = (
       (row) => row.equipment.equipmentId !== id || row.task !== task
     )
   }
+}
+
+export const didAlreadyExist = (state: TripsState, item: TripDetail) => {
+  return state.rows.some(
+    (row) => row.equipment.orderItemId === item.equipment.orderItemId
+  )
 }

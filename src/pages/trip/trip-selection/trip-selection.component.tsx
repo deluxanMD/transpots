@@ -5,6 +5,7 @@ import { SyntheticEvent, useState } from 'react'
 import { tripTabs } from '../trip.constants'
 import TripTractorsList from '../trip-tractors-list/trip-tractors-list'
 import TripTrailersList from '../trip-trailers-list/trip-trailers-list'
+import TripOrdersList from '../trip-orders-list/trip-orders-list'
 
 const TripSelection = () => {
   const [tabsValue, setTabsValue] = useState(0)
@@ -28,6 +29,9 @@ const TripSelection = () => {
         </TabPanel>
         <TabPanel value={tabsValue} index={1}>
           <TripTrailersList />
+        </TabPanel>
+        <TabPanel value={tabsValue} index={2}>
+          <TripOrdersList />
         </TabPanel>
       </BasicTabs>
     </>

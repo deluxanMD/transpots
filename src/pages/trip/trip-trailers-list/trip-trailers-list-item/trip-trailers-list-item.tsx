@@ -6,10 +6,10 @@ import {
   clearError,
   makeError,
 } from '../../../../store/trips/trips.slice'
-import { TrailersListItemContainer } from './trip-trailers-list-item.styles'
 import { Alert, Snackbar, Stack, Typography } from '@mui/material'
 import RightArrowCircle from '../../../../assets/icons/RightArrowCircle.png'
 import { RootState } from '../../../../store'
+import { ListItemContainer } from '../../trip.styles'
 
 const TripTrailersListItem = ({ trailerId }: Trailer) => {
   const rows = useSelector((state: RootState) => state.trips.rows)
@@ -44,7 +44,7 @@ const TripTrailersListItem = ({ trailerId }: Trailer) => {
 
   return (
     <>
-      <TrailersListItemContainer
+      <ListItemContainer
         sx={{
           bgcolor: 'secondary.light',
           opacity: isSelected ? '60%' : '100%',
@@ -68,7 +68,7 @@ const TripTrailersListItem = ({ trailerId }: Trailer) => {
             style={{ cursor: 'pointer' }}
           />
         )}
-      </TrailersListItemContainer>
+      </ListItemContainer>
       <Snackbar
         open={error.open}
         autoHideDuration={2000}
