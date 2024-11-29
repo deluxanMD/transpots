@@ -39,9 +39,7 @@ const Sidebar = ({ close }: SidebarProps) => {
           </CustomListItemButton>
         ))}
       </List>
-      <div style={{ marginLeft: '6px' }}>
-        <SidebarButtons />
-      </div>
+      <SidebarButtons />
     </Box>
   )
 }

@@ -14,9 +14,10 @@ const MobileNav = ({ open, close }: MobileNavProps) => {
       <div
         style={{
           width: 120,
-          height: '100%',
+          height: '100vh',
           paddingRight: '12px',
           backgroundColor: theme.palette.secondary.main,
+          overflow: 'hidden',
         }}
       >
         <Sidebar close={close} />
