@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
 import TripDetailsTable from './trip-details-table/trip-details-table'
-import SelectDriver from '../../../components/select-driver/select-driver.component'
+import SelectField from '../../../components/select-field/select-field.component'
 
 const TripDetails = () => {
   const handleCancel = () => {
@@ -16,7 +16,10 @@ const TripDetails = () => {
     <Stack sx={{ height: '100%', justifyContent: 'space-between' }}>
       <Stack spacing={2} mt={1}>
         <div style={{ marginLeft: '36px' }}>
-          <SelectDriver drivers={['Shri P', 'David Cho', 'Rajan Balan']} />
+          <SelectField
+            options={['Shri P', 'David Cho', 'Rajan Balan']}
+            label="Select Driver"
+          />
         </div>
         <div style={{ minHeight: '100vh' }}>
           <TripDetailsTable />

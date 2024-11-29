@@ -2,40 +2,35 @@ import {
   FormControl,
   MenuItem,
   SelectChangeEvent,
+  SelectProps,
   Stack,
   Typography,
   useTheme,
 } from '@mui/material'
 import { useState } from 'react'
-import { DriverSelect } from './select-driver.styles'
+import { DriverSelect } from './select-field.styles'
 import DropdownArrow from '../../assets/icons/DropdownArrow.png'
 
 type SelectDriverProps = {
-  drivers: string[]
-}
+  options: string[]
+} & SelectProps
 
-const SelectDriver = ({ drivers }: SelectDriverProps) => {
+const SelectField = ({ options, label }: SelectDriverProps) => {
   const theme = useTheme()
-  const [driver, setDriver] = useState('')
+  const [value, setValue] = useState('')
 
   const handleChange = (event: SelectChangeEvent<any>) => {
-    setDriver(event.target.value as string)
+    setValue(event.target.value as string)
   }
 
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
-      <Typography
-        sx={{
-          fontWeight: 300,
-        }}
-      >
-        Driver Name
-      </Typography>
+      <Typography sx={{ fontWeight: 300 }}>{label}</Typography>
       <FormControl>
         <DriverSelect
-          labelId="select-driver"
-          id="select-driver"
-          value={driver === '' ? 'Select Driver' : driver}
+          labelId="select-field"
+          id="select-field"
+          value={value === '' ? label : value}
           size="small"
           onChange={handleChange}
           theme={theme}
@@ -53,10 +48,10 @@ const SelectDriver = ({ drivers }: SelectDriverProps) => {
             />
           )}
         >
-          <MenuItem value="Select Driver">Select Driver</MenuItem>
-          {drivers.map((driver) => (
-            <MenuItem key={driver} value={driver}>
-              {driver}
+          <MenuItem value="Select Driver">{label}</MenuItem>
+          {options.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
             </MenuItem>
           ))}
         </DriverSelect>
@@ -65,4 +60,4 @@ const SelectDriver = ({ drivers }: SelectDriverProps) => {
   )
 }
 
-export default SelectDriver
+export default SelectField
