@@ -4,16 +4,21 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: '#2264E5',
+      light: '#D4E7F2',
     },
     secondary: {
       main: '#A0A0A0',
-      light: '#D9D9D9',
+      light: '#EBEBEB',
     },
     success: {
       main: '#22E564',
+      light: '#CFF2DC',
     },
     error: {
       main: '#E52222',
+    },
+    common: {
+      white: '#FFFFFF',
     },
   },
   shape: {

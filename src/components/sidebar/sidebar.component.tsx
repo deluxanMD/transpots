@@ -2,6 +2,7 @@ import { Box, List, ListItemText } from '@mui/material'
 import { CustomListItemButton } from './sidebar.styles'
 import { sidebars } from './sidebar.constant'
 import { useLocation, useNavigate } from 'react-router-dom'
+import SidebarButtons from '../sidebar-buttons/sidebar-buttons.component'
 
 type SidebarProps = {
   close?: () => void
@@ -12,7 +13,15 @@ const Sidebar = ({ close }: SidebarProps) => {
   const { pathname } = useLocation()
 
   return (
-    <Box sx={{ width: '100%' }} mt={1}>
+    <Box
+      sx={{
+        width: '100%',
+        display: 'flex',
+        height: 'calc(100vh - 66px)',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
       <List component="nav">
         {sidebars.map((sidebar) => (
           <CustomListItemButton
@@ -30,6 +39,7 @@ const Sidebar = ({ close }: SidebarProps) => {
           </CustomListItemButton>
         ))}
       </List>
+      <SidebarButtons />
     </Box>
   )
 }

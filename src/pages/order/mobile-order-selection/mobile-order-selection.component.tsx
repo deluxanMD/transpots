@@ -3,7 +3,7 @@ import OrderDetails from '../order-details/order-details.component'
 import OrderSelection from '../order-selection/order-selection.component'
 import { OrderPageContext } from '../order-page.provider'
 import { Box, Stack, Typography } from '@mui/material'
-import { ArrowBack } from '@mui/icons-material'
+import ArrowLeft from '../../../assets/icons/ArrowLeft.png'
 
 const MobileOrderSelection = () => {
   const value = useContext(OrderPageContext)
@@ -25,7 +25,6 @@ const MobileOrderSelection = () => {
         <Stack spacing={1}>
           <Stack
             direction="row"
-            spacing={1}
             sx={{ cursor: 'pointer', alignItems: 'center' }}
             onClick={() =>
               value?.handleSelectOrder({
@@ -37,7 +36,7 @@ const MobileOrderSelection = () => {
             }
           >
             <Box px={1} pt={1}>
-              <ArrowBack />
+              <img src={ArrowLeft} alt="arrow left" width={24} height={24} />
             </Box>
             <Typography>Go Back</Typography>
           </Stack>

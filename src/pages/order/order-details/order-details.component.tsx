@@ -1,16 +1,25 @@
-import { Button, Divider, Grid2, Stack, Typography } from '@mui/material'
+import { Divider, Grid2, Typography } from '@mui/material'
 import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
 import TabPanel from '../../../components/tab-panel/tab-panel.component'
 import OrderDetailsCustomer from './order-details-customer/order-details-customer.component'
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
+import ActionButtons from '../../../components/action-buttons/action-buttons.component'
 
 const OrderDetails = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
+  }
+
+  const handleVerifyOrder = () => {
+    console.log('Verify Order')
+  }
+
+  const handleDeleteOrder = () => {
+    console.log('Delete Order')
   }
 
   return (
@@ -48,47 +57,10 @@ const OrderDetails = () => {
           </Grid2>
         </BasicTabs>
       </div>
-      <Stack
-        direction="row"
-        justifyContent="center"
-        spacing={2}
-        p={1}
-        borderTop={0.6}
-        sx={{
-          position: 'sticky',
-          bottom: 0,
-          backgroundColor: 'Background',
-          borderBottomLeftRadius: 10,
-          borderBottomRightRadius: 10,
-        }}
-      >
-        <Button
-          sx={{
-            bgcolor: 'primary.main',
-            color: '#fff',
-            borderRadius: '6px',
-            textTransform: 'capitalize',
-            fontWeight: 700,
-            paddingX: '12px',
-            paddingY: '6px',
-          }}
-        >
-          Verify Order
-        </Button>
-        <Button
-          sx={{
-            bgcolor: 'error.main',
-            color: '#fff',
-            borderRadius: '6px',
-            textTransform: 'capitalize',
-            fontWeight: 700,
-            paddingX: '12px',
-            paddingY: '6px',
-          }}
-        >
-          Delete Order
-        </Button>
-      </Stack>
+      <ActionButtons
+        firstBtnProps={{ title: 'Verify Order', onClick: handleVerifyOrder }}
+        secondBtnProps={{ title: 'Delete Order', onClick: handleDeleteOrder }}
+      />
     </>
   )
 }
