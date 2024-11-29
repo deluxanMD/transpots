@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../../../../store'
 import TripDetailsTableAction from '../trip-details-table-action/trip-details-table-action'
 import TripDetailsTableCompany from '../trip-details-table-company/trip-details-table-company'
+import TripDetailsTask from '../../trip-details-task/trip-details-task'
 
 const StyledTableRow = styled(TableRow)(() => ({
   '&:nth-of-type(odd)': {},
@@ -36,12 +37,7 @@ const TripDetailsTableBody = () => {
         const { company, date, equipment, estimateDate, task } = row
         return (
           <StyledTableRow key={index} sx={{ bgcolor: getBgColor(task) }}>
-            <TripDetailsTableCell
-              value1={task}
-              textTransform="capitalize"
-              minWidth={140}
-              {...row}
-            />
+            <TripDetailsTask task={task} row={row} />
             <TripDetailsTableCell
               value1={equipment.equipmentId}
               value2={equipment.equipmentType}

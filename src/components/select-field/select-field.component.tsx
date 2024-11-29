@@ -13,9 +13,14 @@ import DropdownArrow from '../../assets/icons/DropdownArrow.png'
 
 type SelectDriverProps = {
   options: string[]
+  hideLabel?: boolean
 } & SelectProps
 
-const SelectField = ({ options, label }: SelectDriverProps) => {
+const SelectField = ({
+  options,
+  label,
+  hideLabel = false,
+}: SelectDriverProps) => {
   const theme = useTheme()
   const [value, setValue] = useState('')
 
@@ -25,7 +30,7 @@ const SelectField = ({ options, label }: SelectDriverProps) => {
 
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
-      <Typography sx={{ fontWeight: 300 }}>{label}</Typography>
+      {!hideLabel && <Typography sx={{ fontWeight: 300 }}>{label}</Typography>}
       <FormControl>
         <DriverSelect
           labelId="select-field"
@@ -37,6 +42,7 @@ const SelectField = ({ options, label }: SelectDriverProps) => {
           sx={{
             color: 'common.white',
             fontWeight: 700,
+            borderRadius: '6px',
           }}
           IconComponent={() => (
             <img
@@ -48,7 +54,7 @@ const SelectField = ({ options, label }: SelectDriverProps) => {
             />
           )}
         >
-          <MenuItem value="Select Driver">{label}</MenuItem>
+          {!hideLabel && <MenuItem value="Select Driver">{label}</MenuItem>}
           {options.map((option) => (
             <MenuItem key={option} value={option}>
               {option}
