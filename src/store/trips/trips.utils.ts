@@ -22,3 +22,9 @@ export const didAlreadyExist = (state: TripsState, item: TripDetail) => {
     (row) => row.equipment.orderItemId === item.equipment.orderItemId
   )
 }
+
+export const removeOrderItem = (state: TripsState, orderItemId: string) => {
+  state.rows = state.rows.filter(
+    (row) => row.equipment.orderItemId !== orderItemId
+  )
+}

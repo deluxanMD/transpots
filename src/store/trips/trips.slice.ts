@@ -17,7 +17,11 @@ import {
   trailersFixture,
 } from './trips.fixtures'
 import { insertInto } from '../../utils/store'
-import { didAlreadyExist, removeHookAndDrop } from './trips.utils'
+import {
+  didAlreadyExist,
+  removeHookAndDrop,
+  removeOrderItem,
+} from './trips.utils'
 
 export interface TripsState {
   rows: TripDetail[]
@@ -130,6 +134,12 @@ export const tripsSlice = createSlice({
         removeHookAndDrop(state, id, task)
       }
     },
+    closeOrderItem: (
+      state,
+      { payload: { orderItemId } }: PayloadAction<{ orderItemId: string }>
+    ) => {
+      removeOrderItem(state, orderItemId)
+    },
   },
 })
 
@@ -141,6 +151,7 @@ export const {
   makeError,
   clearError,
   closeVehicle,
+  closeOrderItem,
 } = tripsSlice.actions
 
 export default tripsSlice.reducer
