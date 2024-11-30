@@ -8,12 +8,18 @@ import ActionButtons from '../../../components/action-buttons/action-buttons.com
 import LoadPickupForm from '../../../components/forms/load-pickup-form/load-pickup-form.component'
 import LoadDeliveryForm from '../../../components/forms/load-delivery-form/load-delivery-form.component'
 import LoadNotesForm from '../../../components/forms/load-notes-form/load-notes-form.component'
+import LoadConfirmationSuccessDialog from '../../../components/load-confirmation-dialog/load-confirmation-success-dialog.component'
 
 const VerifyOrderForm = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
+  const [open, setOpen] = React.useState(false)
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
+  }
+
+  const handleDialogClose = () => {
+    setOpen(false)
   }
 
   const deleteOrder = () => {
@@ -21,7 +27,7 @@ const VerifyOrderForm = () => {
   }
 
   const save = () => {
-    console.log('Save')
+    setOpen(true)
   }
 
   return (
@@ -60,6 +66,10 @@ const VerifyOrderForm = () => {
           bgColor: 'primary.main',
           onClick: save,
         }}
+      />
+      <LoadConfirmationSuccessDialog
+        open={open}
+        handleClose={handleDialogClose}
       />
     </>
   )

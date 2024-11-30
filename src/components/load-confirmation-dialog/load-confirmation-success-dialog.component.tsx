@@ -32,7 +32,7 @@ const LoadConfirmationSuccessDialog = ({ open, handleClose }: LCSProps) => {
           Click here to check{' '}
           <LCDialogLink
             style={{ color: theme.palette.primary.main }}
-            onClick={() => handleNavigation('order')}
+            onClick={() => handleNavigation('/order')}
           >
             New Order
           </LCDialogLink>{' '}
