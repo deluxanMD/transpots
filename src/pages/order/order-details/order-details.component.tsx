@@ -6,16 +6,18 @@ import TabPanel from '../../../components/tab-panel/tab-panel.component'
 import OrderDetailsCustomer from './order-details-customer/order-details-customer.component'
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
+import { useNavigate } from 'react-router-dom'
 
 const OrderDetails = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
+  const navigate = useNavigate()
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
   }
 
   const handleVerifyOrder = () => {
-    console.log('Verify Order')
+    navigate('verify')
   }
 
   const handleDeleteOrder = () => {
