@@ -1,4 +1,4 @@
-import { Divider, Grid2, Typography } from '@mui/material'
+import { Grid2, Typography } from '@mui/material'
 import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
@@ -32,7 +32,6 @@ const OrderDetails = () => {
           value={tabsValue}
           handleChange={handleChange}
         >
-          <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
           <Grid2 container>
             <Grid2 size={{ xs: 6, sm: 7, md: 8 }} p={2}>
               <TabPanel value={tabsValue} index={0}>

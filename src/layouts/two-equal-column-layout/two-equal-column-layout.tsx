@@ -18,7 +18,7 @@ const TwoEqualColumnLayout = ({ children }: { children: React.ReactNode }) => {
         size={{ sm: 12, lg: 5.5 }}
         sx={{ display: { xs: 'none', sm: 'block' } }}
       >
-        <Paper elevation={4} sx={{ p: 2, minHeight: '100%' }}>
+        <Paper elevation={4} sx={{ minHeight: '100%' }}>
           {childrenArray[1]}
         </Paper>
       </Grid2>
