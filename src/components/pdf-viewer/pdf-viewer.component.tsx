@@ -1,12 +1,15 @@
-import { Stack, Typography } from '@mui/material'
+import { Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
 import { Document, Page } from 'react-pdf'
 import ArrowLeft from '../../assets/icons/ArrowLeft.png'
 import ArrowRight from '../../assets/icons/ArrowRight.png'
 
 const PdfViewer = () => {
+  const theme = useTheme()
   const [numPages, setNumPages] = useState<number>(0)
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const isSm = useMediaQuery(theme.breakpoints.down('md'))
+  const isLg = useMediaQuery(theme.breakpoints.up('lg'))
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
     setNumPages(numPages)
@@ -59,7 +62,8 @@ const PdfViewer = () => {
           pageNumber={pageNumber}
           renderTextLayer={false}
           renderAnnotationLayer={false}
-          //   scale={1.25}
+          scale={isLg ? 1 : isSm ? 0.6 : 0.7}
+          // scale={0.7}
         />
       </Document>
     </>
