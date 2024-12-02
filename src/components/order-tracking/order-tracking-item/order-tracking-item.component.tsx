@@ -4,10 +4,11 @@ import {
   TimelineItem,
   TimelineSeparator,
 } from '@mui/lab'
-import { Button, Typography } from '@mui/material'
+import { Typography, useTheme } from '@mui/material'
 import { OrderTracking } from '../../../pages/order/order-details/order-details.constant'
 import CircleGreenRevised from '../../../assets/icons/Circle Green Revised.png'
 import SolidCircle from '../../../assets/icons/Solid Circle.png'
+import { TrackingButton } from './order-tracking-item.styles'
 
 const OrderTrackingItem = ({
   status,
@@ -16,6 +17,8 @@ const OrderTrackingItem = ({
   done,
   isLast,
 }: OrderTracking) => {
+  const theme = useTheme()
+
   return (
     <TimelineItem>
       <TimelineSeparator>
@@ -35,21 +38,15 @@ const OrderTrackingItem = ({
         <Typography fontWeight={700}>{status}</Typography>
         <Typography>{date}</Typography>
         <Typography>{description}</Typography>
-        {(status === 'Pickup' || status === 'Delivery') && !done && (
-          <Button
-            size="small"
-            sx={{
-              bgcolor: 'primary.main',
-              color: '#fff',
-              px: '12px',
-              py: '6px',
-              borderRadius: '6px',
-              textTransform: 'capitalize',
-              fontWeight: 700,
-            }}
-          >
-            {status}
-          </Button>
+        {status === 'Pickup' && !done && (
+          <TrackingButton size="small" theme={theme}>
+            Mark as Picked up
+          </TrackingButton>
+        )}
+        {status === 'Delivery' && !done && (
+          <TrackingButton size="small" theme={theme}>
+            Mark as Delivered
+          </TrackingButton>
         )}
       </TimelineContent>
     </TimelineItem>
