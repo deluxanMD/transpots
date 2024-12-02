@@ -40,6 +40,14 @@ const OrderCard = (order: Order) => {
             ? theme.palette.primary.main
             : theme.palette.secondary.light,
           color: isSelectedOrder ? '#ffffff' : theme.palette.secondary.dark,
+          border:
+            order.status === 'New'
+              ? `1px solid ${theme.palette.secondary.main}`
+              : '0px',
+          borderBottom:
+            order.status !== 'New'
+              ? `1px solid ${theme.palette.secondary.main}`
+              : '0px',
         }}
       >
         <Stack direction="row" alignItems="center" spacing={1}>
