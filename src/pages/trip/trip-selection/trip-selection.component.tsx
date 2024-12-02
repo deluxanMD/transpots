@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
-import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
-import TabPanel from '../../../components/tab-panel/tab-panel.component'
+import BasicTabs from '../../../components/tabs/basic-tabs/basic-tabs.component'
+import TabPanel from '../../../components/tabs/tab-panel/tab-panel.component'
 import { SyntheticEvent, useState } from 'react'
 import { tripTabs } from '../trip.constants'
 import TripTractorsList from '../trip-tractors-list/trip-tractors-list'

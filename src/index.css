@@ -4,33 +4,40 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-color: #a0a0a0 !important;
   /* min-height: 100vh !important; */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
 }
 
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('./assets/fonts/SF-Pro-Display-Light.ttf') format('truetype');
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SF-Pro-Display-Light.ttf") format("truetype");
   font-weight: 300; /* Light */
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('./assets/fonts/SF-Pro-Display-Regular.ttf') format('truetype');
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SF-Pro-Display-Regular.ttf") format("truetype");
   font-weight: 400; /* Regular */
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('./assets/fonts/SF-Pro-Display-Bold.ttf') format('truetype');
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SF-Pro-Display-Bold.ttf") format("truetype");
   font-weight: 700; /* Bold */
   font-style: normal;
 }

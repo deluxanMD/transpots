@@ -9,4 +9,7 @@ export const Container = styled(Paper)`
   padding-right: 0.4rem;
   height: 50px;
   border-radius: 0px !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `
