@@ -34,7 +34,11 @@ const TwoColumnLayout = ({ children }: { children: React.ReactNode }) => {
         </Paper>
       </Grid2>
       <Grid2 size={12} sx={{ display: { xs: 'block', sm: 'none' } }}>
-        <Paper elevation={4} sx={{ minHeight: '100%' }}>
+        <Paper
+          elevation={4}
+          sx={{ overflow: 'auto', height: 'calc(100vh - 66px)' }}
+          className="hide-scrollbar"
+        >
           {childrenArray[2]}
         </Paper>
       </Grid2>

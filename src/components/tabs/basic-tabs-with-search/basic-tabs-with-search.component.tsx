@@ -38,7 +38,7 @@ const BasicTabsWithSearch = ({
           variant="scrollable"
           sx={{
             position: 'sticky',
-            top: 60,
+            top: 58,
             backgroundColor: 'white',
             '& .MuiTabs-scrollButtons': {
               display: 'none',
