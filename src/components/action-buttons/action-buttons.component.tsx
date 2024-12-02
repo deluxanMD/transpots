@@ -34,6 +34,7 @@ const ActionButtons = ({
           fontWeight: 700,
           paddingX: '12px',
           paddingY: '6px',
+          minWidth: '170px',
         }}
         onClick={firstBtnProps.onClick}
       >
@@ -49,6 +50,7 @@ const ActionButtons = ({
           fontWeight: 700,
           paddingX: '12px',
           paddingY: '6px',
+          minWidth: '170px',
         }}
         onClick={secondBtnProps.onClick}
       >

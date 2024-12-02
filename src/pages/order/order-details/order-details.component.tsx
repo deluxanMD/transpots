@@ -1,4 +1,4 @@
-import { Divider, Grid2, Typography } from '@mui/material'
+import { Grid2, Typography } from '@mui/material'
 import React from 'react'
 import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
@@ -6,16 +6,18 @@ import TabPanel from '../../../components/tab-panel/tab-panel.component'
 import OrderDetailsCustomer from './order-details-customer/order-details-customer.component'
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
+import { useNavigate } from 'react-router-dom'
 
 const OrderDetails = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
+  const navigate = useNavigate()
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
   }
 
   const handleVerifyOrder = () => {
-    console.log('Verify Order')
+    navigate('verify')
   }
 
   const handleDeleteOrder = () => {
@@ -30,7 +32,6 @@ const OrderDetails = () => {
           value={tabsValue}
           handleChange={handleChange}
         >
-          <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
           <Grid2 container>
             <Grid2 size={{ xs: 6, sm: 7, md: 8 }} p={2}>
               <TabPanel value={tabsValue} index={0}>

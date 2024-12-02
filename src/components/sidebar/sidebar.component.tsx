@@ -32,7 +32,11 @@ const Sidebar = ({ close }: SidebarProps) => {
                 close()
               }
             }}
-            selected={pathname.endsWith(sidebar.href)}
+            selected={
+              pathname !== '/' && sidebar.href !== '/'
+                ? pathname.includes(sidebar.href)
+                : pathname.endsWith(sidebar.href)
+            }
             sx={{ mb: 2 }}
           >
             <ListItemText primary={sidebar.label} />

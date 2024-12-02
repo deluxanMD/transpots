@@ -1,4 +1,4 @@
-import { Box, Tab as MuiTab, Tabs } from '@mui/material'
+import { Box, Divider, Tab as MuiTab, Tabs } from '@mui/material'
 import React from 'react'
 import { Tab } from '../../types'
 
@@ -11,7 +11,7 @@ type BasicTabsProps = {
 
 const BasicTabs = ({ tabs, value, handleChange, children }: BasicTabsProps) => {
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box>
       <Box>
         <Tabs
           value={value}
@@ -32,11 +32,15 @@ const BasicTabs = ({ tabs, value, handleChange, children }: BasicTabsProps) => {
               label={tab.label}
               sx={{
                 textTransform: 'capitalize',
+                // width: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
               }}
             />
           ))}
         </Tabs>
       </Box>
+      <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
       {children}
     </Box>
   )
