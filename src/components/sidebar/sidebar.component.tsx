@@ -1,5 +1,5 @@
-import { Box, List, ListItemText } from '@mui/material'
-import { CustomListItemButton } from './sidebar.styles'
+import { List, ListItemText } from '@mui/material'
+import { Container, CustomListItemButton } from './sidebar.styles'
 import { sidebars } from './sidebar.constant'
 import { useLocation, useNavigate } from 'react-router-dom'
 import SidebarButtons from '../sidebar-buttons/sidebar-buttons.component'
@@ -13,15 +13,7 @@ const Sidebar = ({ close }: SidebarProps) => {
   const { pathname } = useLocation()
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        display: 'flex',
-        height: 'calc(100vh - 66px)',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
+    <Container>
       <List component="nav">
         {sidebars.map((sidebar) => (
           <CustomListItemButton
@@ -44,7 +36,7 @@ const Sidebar = ({ close }: SidebarProps) => {
         ))}
       </List>
       <SidebarButtons />
-    </Box>
+    </Container>
   )
 }
 

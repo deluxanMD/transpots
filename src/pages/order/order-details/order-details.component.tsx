@@ -1,8 +1,8 @@
 import { Grid2, Typography } from '@mui/material'
 import React from 'react'
-import BasicTabs from '../../../components/basic-tabs/basic-tabs.component'
+import BasicTabs from '../../../components/tabs/basic-tabs/basic-tabs.component'
 import { orderDetailsTabs } from './order-details.constant'
-import TabPanel from '../../../components/tab-panel/tab-panel.component'
+import TabPanel from '../../../components/tabs/tab-panel/tab-panel.component'
 import OrderDetailsCustomer from './order-details-customer/order-details-customer.component'
 import OrderTracking from '../../../components/order-tracking/order-tracking.component'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
@@ -25,8 +25,8 @@ const OrderDetails = () => {
   }
 
   return (
-    <>
-      <div style={{ minHeight: '100vh' }}>
+    <div>
+      <div style={{ minHeight: '100%' }}>
         <BasicTabs
           tabs={orderDetailsTabs}
           value={tabsValue}
@@ -62,7 +62,7 @@ const OrderDetails = () => {
         firstBtnProps={{ title: 'Verify Order', onClick: handleVerifyOrder }}
         secondBtnProps={{ title: 'Delete Order', onClick: handleDeleteOrder }}
       />
-    </>
+    </div>
   )
 }
 

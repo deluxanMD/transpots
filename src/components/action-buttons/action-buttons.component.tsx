@@ -1,4 +1,5 @@
-import { Button, ButtonProps, Stack } from '@mui/material'
+import { Button, ButtonProps } from '@mui/material'
+import { Buttoncontainer } from './action-buttons.styles'
 
 type ActionButtonsProps = {
   firstBtnProps: { bgColor?: string } & ButtonProps
@@ -10,19 +11,12 @@ const ActionButtons = ({
   secondBtnProps,
 }: ActionButtonsProps) => {
   return (
-    <Stack
+    <Buttoncontainer
       direction="row"
       justifyContent="center"
       spacing={2}
       p={1}
       borderTop={0.6}
-      sx={{
-        position: 'sticky',
-        bottom: 0,
-        backgroundColor: 'Background',
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-      }}
     >
       <Button
         {...firstBtnProps}
@@ -56,7 +50,7 @@ const ActionButtons = ({
       >
         {secondBtnProps.title}
       </Button>
-    </Stack>
+    </Buttoncontainer>
   )
 }
 

@@ -1,5 +1,16 @@
-import { ListItemButton } from '@mui/material'
+import { Box, ListItemButton } from '@mui/material'
 import styled from 'styled-components'
+
+export const Container = styled(Box)`
+  width: 100%;
+  display: flex;
+  height: calc(100vh - 66px);
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 60px;
+  left: 0;
+`
 
 export const CustomListItemButton = styled(ListItemButton)`
   height: 32px;
