@@ -5,6 +5,7 @@ import MainLayout from '../layouts/main-layout/main-layout'
 import TripPage from '../pages/trip/trip.page'
 import IntegrationPage from '../pages/integration/integration.page'
 import VerifyOrderPage from '../pages/verify-order/verify-order.page'
+import InvoicePage from '../pages/invoice/invoice.page'
 
 const MainRouter = () => {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const MainRouter = () => {
         {
           path: 'trip',
           element: <TripPage />,
+        },
+        {
+          path: 'invoice',
+          element: <InvoicePage />,
         },
         {
           path: 'integration',
