@@ -1,12 +1,18 @@
-import { Stack } from '@mui/material'
+import { SelectChangeEvent, Stack } from '@mui/material'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
 import TripDetailsTable from './trip-details-table/trip-details-table'
 import SelectField from '../../../components/select-field/select-field.component'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store'
+import { useState } from 'react'
 
 const TripDetails = () => {
   const rows = useSelector((state: RootState) => state.trips.rows)
+  const [value, setValue] = useState('')
+
+  const handleChange = (event: SelectChangeEvent<any>) => {
+    setValue(event.target.value as string)
+  }
 
   const handleCancel = () => {
     console.log('Edit Trip')
@@ -23,6 +29,8 @@ const TripDetails = () => {
           <SelectField
             options={['Shri P', 'David Cho', 'Rajan Balan']}
             label="Select Driver"
+            value={value === '' ? 'Select Driver' : value}
+            onChange={handleChange}
           />
         </div>
         <div style={{ minHeight: '100vh' }}>

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {
+  Company,
   EquipmentType,
   Order,
   Task,
@@ -140,6 +141,36 @@ export const tripsSlice = createSlice({
     ) => {
       removeOrderItem(state, orderItemId)
     },
+    convertToDrop: (
+      state,
+      { payload: { id } }: PayloadAction<{ id: string }>
+    ) => {
+      state.rows = state.rows.map((row) =>
+        row.equipment.equipmentId === id && row.task === 'delivery'
+          ? { ...row, task: 'drop' }
+          : row
+      )
+    },
+    convertToDelivery: (
+      state,
+      { payload: { id } }: PayloadAction<{ id: string }>
+    ) => {
+      state.rows = state.rows.map((row) =>
+        row.equipment.equipmentId === id && row.task === 'drop'
+          ? { ...row, task: 'delivery' }
+          : row
+      )
+    },
+    updateAddress: (
+      state,
+      {
+        payload: { trip, company },
+      }: PayloadAction<{ trip: TripDetail; company: Company }>
+    ) => {
+      state.rows = state.rows.map((row) =>
+        row.task === trip.task ? { ...row, company } : row
+      )
+    },
   },
 })
 
@@ -152,6 +183,9 @@ export const {
   clearError,
   closeVehicle,
   closeOrderItem,
+  convertToDrop,
+  convertToDelivery,
+  updateAddress,
 } = tripsSlice.actions
 
 export default tripsSlice.reducer

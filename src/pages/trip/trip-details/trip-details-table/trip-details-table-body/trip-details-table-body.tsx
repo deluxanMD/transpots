@@ -34,7 +34,7 @@ const TripDetailsTableBody = () => {
   return (
     <TableBody>
       {rows.map((row: TripDetail, index) => {
-        const { company, date, equipment, estimateDate, task } = row
+        const { date, equipment, estimateDate, task } = row
         return (
           <StyledTableRow key={index} sx={{ bgcolor: getBgColor(task) }}>
             <TripDetailsTask task={task} row={row} />
@@ -56,7 +56,7 @@ const TripDetailsTableBody = () => {
               minWidth={150}
               {...row}
             />
-            <TripDetailsTableCompany {...company} />
+            <TripDetailsTableCompany {...row} />
             <TripDetailsTableAction
               currentRow={row}
               prevRow={rows[index - 1]}

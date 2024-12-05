@@ -9,6 +9,7 @@ import Close from '../../../../../assets/icons/Close.png'
 import DownArrow from '../../../../../assets/icons/DownArrow.png'
 import UpArrow from '../../../../../assets/icons/UpArrow.png'
 import { Stack } from '@mui/material'
+import { useTripDetailsAction } from './trip-details-table-action.hooks'
 
 type TripDetailsTableActionProps = {
   currentRow: TripDetail
@@ -22,6 +23,7 @@ const TripDetailsTableAction = ({
   nextRow,
 }: TripDetailsTableActionProps) => {
   const dispatch = useDispatch()
+  const { hasCloseIcon } = useTripDetailsAction(currentRow)
 
   const handleCloseVehicle = (
     id: string,
@@ -56,25 +58,27 @@ const TripDetailsTableAction = ({
             style={{ cursor: 'pointer' }}
           />
         )}
-        <img
-          src={Close}
-          alt="action icon"
-          width={27}
-          height={27}
-          style={{ cursor: 'pointer' }}
-          onClick={() => {
-            if (currentRow.task === 'hook' || currentRow.task === 'drop') {
-              handleCloseVehicle(
-                currentRow.equipment.equipmentId,
-                currentRow.task,
-                currentRow.equipment.equipmentType
-              )
-            } else {
-              !!currentRow.equipment.orderItemId &&
-                handleCloseOrderItem(currentRow.equipment.orderItemId)
-            }
-          }}
-        />
+        {hasCloseIcon && (
+          <img
+            src={Close}
+            alt="action icon"
+            width={27}
+            height={27}
+            style={{ cursor: 'pointer' }}
+            onClick={() => {
+              if (currentRow.task === 'hook' || currentRow.task === 'drop') {
+                handleCloseVehicle(
+                  currentRow.equipment.equipmentId,
+                  currentRow.task,
+                  currentRow.equipment.equipmentType
+                )
+              } else {
+                !!currentRow.equipment.orderItemId &&
+                  handleCloseOrderItem(currentRow.equipment.orderItemId)
+              }
+            }}
+          />
+        )}
       </Stack>
     </TripDetailsTableCell>
   )
