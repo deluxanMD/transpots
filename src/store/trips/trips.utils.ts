@@ -11,8 +11,10 @@ export const removeHookAndDrop = (
   }
 
   if (task === 'drop') {
-    state.rows = state.rows.filter(
-      (row) => row.equipment.equipmentId !== id || row.task !== task
+    state.rows = state.rows.map((row) =>
+      row.equipment.equipmentId === id && row.task === 'drop'
+        ? { ...row, task: 'delivery' }
+        : row
     )
   }
 }

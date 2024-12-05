@@ -1,13 +1,11 @@
 import {
   FormControl,
   MenuItem,
-  SelectChangeEvent,
   SelectProps,
   Stack,
   Typography,
   useTheme,
 } from '@mui/material'
-import { useState } from 'react'
 import { DriverSelect } from './select-field.styles'
 import DropdownArrow from '../../assets/icons/DropdownArrow.png'
 
@@ -20,13 +18,10 @@ const SelectField = ({
   options,
   label,
   hideLabel = false,
+  value,
+  onChange,
 }: SelectDriverProps) => {
   const theme = useTheme()
-  const [value, setValue] = useState('')
-
-  const handleChange = (event: SelectChangeEvent<any>) => {
-    setValue(event.target.value as string)
-  }
 
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
@@ -35,9 +30,9 @@ const SelectField = ({
         <DriverSelect
           labelId="select-field"
           id="select-field"
-          value={value === '' ? label : value}
+          value={value}
           size="small"
-          onChange={handleChange}
+          onChange={onChange}
           theme={theme}
           sx={{
             color: 'common.white',
