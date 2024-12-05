@@ -12,7 +12,11 @@ import {
 import TextInputField from '../../../../../components/fields/text-input-field/text-input-field.component'
 import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { updateAddress } from '../../../../../store/trips/trips.slice'
+import {
+  convertToDelivery,
+  convertToDrop,
+  updateAddress,
+} from '../../../../../store/trips/trips.slice'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,7 +34,18 @@ type AddressProps = {
   setIsEdit: (isEdit: boolean) => void
 } & TripDetail
 
-const TripDetailsExistingAddress = ({ company, setIsEdit }: AddressProps) => {
+const TripDetailsExistingAddress = ({
+  equipment: { equipmentId },
+  company,
+  setIsEdit,
+}: AddressProps) => {
+  const dispatch = useDispatch()
+
+  const handleEdit = () => {
+    setIsEdit(true)
+    dispatch(convertToDelivery({ id: equipmentId }))
+  }
+
   return (
     <Stack direction="row" spacing={1}>
       <img
@@ -39,7 +54,7 @@ const TripDetailsExistingAddress = ({ company, setIsEdit }: AddressProps) => {
         width={46}
         height={46}
         style={{ cursor: 'pointer' }}
-        onClick={() => setIsEdit(true)}
+        onClick={handleEdit}
       />
       <Stack>
         <Typography
@@ -118,6 +133,7 @@ const TripDetailsNewAddress = ({
     } else {
       setIsEdit(false)
       dispatch(updateAddress({ trip: row, company }))
+      dispatch(convertToDrop({ id: row.equipment.equipmentId }))
     }
   }
 

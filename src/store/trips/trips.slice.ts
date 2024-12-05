@@ -151,6 +151,16 @@ export const tripsSlice = createSlice({
           : row
       )
     },
+    convertToDelivery: (
+      state,
+      { payload: { id } }: PayloadAction<{ id: string }>
+    ) => {
+      state.rows = state.rows.map((row) =>
+        row.equipment.equipmentId === id && row.task === 'drop'
+          ? { ...row, task: 'delivery' }
+          : row
+      )
+    },
     updateAddress: (
       state,
       {
@@ -174,6 +184,7 @@ export const {
   closeVehicle,
   closeOrderItem,
   convertToDrop,
+  convertToDelivery,
   updateAddress,
 } = tripsSlice.actions
 

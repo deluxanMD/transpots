@@ -26,6 +26,12 @@ const TripOrdersItem = ({ orderId, orders }: Order) => {
           (row) => row.equipment.orderItemId === order.equipment.orderItemId
         )
 
+        const hasPickupAdded = rows.some(
+          (row) =>
+            row.task === 'pickup' &&
+            row.equipment.equipmentId === order.equipment.equipmentId
+        )
+
         return (
           <OrderItemContainer
             key={`${orderId}_${index}`}
@@ -77,7 +83,14 @@ const TripOrdersItem = ({ orderId, orders }: Order) => {
                 height={24}
                 style={{
                   cursor: 'pointer',
-                  visibility: isSelected ? 'hidden' : 'visible',
+                  visibility:
+                    order.task === 'delivery'
+                      ? hasPickupAdded && !isSelected
+                        ? 'visible'
+                        : 'hidden'
+                      : isSelected
+                        ? 'hidden'
+                        : 'visible',
                 }}
                 onClick={() => handleAddOrderItem(order)}
               />

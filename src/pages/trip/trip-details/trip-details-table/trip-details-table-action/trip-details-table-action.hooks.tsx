@@ -6,6 +6,7 @@ import { RootState } from '../../../../../store'
 export const useTripDetailsAction = (row: TripDetail) => {
   const {
     equipment: { equipmentType },
+    task,
   } = row
   const rows = useSelector((state: RootState) => state.trips.rows)
 
@@ -26,8 +27,10 @@ export const useTripDetailsAction = (row: TripDetail) => {
       return ordersLength === 0
     }
 
+    if (task === 'drop' || task === 'delivery') return false
+
     return true
-  }, [equipmentType, ordersLength, trailersLength])
+  }, [equipmentType, ordersLength, task, trailersLength])
 
   return { hasCloseIcon }
 }
