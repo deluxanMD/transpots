@@ -86,11 +86,11 @@ export const tripsSlice = createSlice({
       state,
       { payload: { orderItem } }: PayloadAction<{ orderItem: TripDetail }>
     ) => {
-      const trailerIndex = state.rows
+      const tractorIndex = state.rows
         .map((row) => row.equipment.equipmentType)
-        .indexOf('Trailer')
+        .indexOf('Tractor')
 
-      state.rows = insertInto(trailerIndex + 1, state.rows, orderItem)
+      state.rows = insertInto(tractorIndex - 2, state.rows, orderItem)
     },
     makeError: (
       state,
