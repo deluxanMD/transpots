@@ -31,7 +31,7 @@ const VerifyOrderForm = () => {
   }
 
   return (
-    <>
+    <div>
       <div style={{ minHeight: '100vh' }}>
         <BasicTabs
           tabs={verifyOrderTabs}
@@ -71,7 +71,7 @@ const VerifyOrderForm = () => {
         open={open}
         handleClose={handleDialogClose}
       />
-    </>
+    </div>
   )
 }
 

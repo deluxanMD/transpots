@@ -1,10 +1,10 @@
 import React from 'react'
-import PdfViewer from '../../../components/pdf-viewer/pdf-viewer.component'
+// import PdfViewer from '../../../components/pdf-viewer/pdf-viewer.component'
 
 const VerifyOrderPdf = () => {
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      {/* <iframe
+      <iframe
         src={`${process.env.PUBLIC_URL}/LoadConfirmation.pdf`}
         width="100%"
         height="100%"
@@ -12,8 +12,8 @@ const VerifyOrderPdf = () => {
         style={{
           border: 'none',
         }}
-      /> */}
-      <PdfViewer />
+      />
+      {/* <PdfViewer /> */}
     </div>
   )
 }
