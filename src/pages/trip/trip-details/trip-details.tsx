@@ -5,10 +5,12 @@ import SelectField from '../../../components/select-field/select-field.component
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const TripDetails = () => {
   const rows = useSelector((state: RootState) => state.trips.rows)
   const [value, setValue] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = (event: SelectChangeEvent<any>) => {
     setValue(event.target.value as string)
@@ -19,7 +21,7 @@ const TripDetails = () => {
   }
 
   const handleSend = () => {
-    console.log('Delete Trip')
+    navigate('/')
   }
 
   return (
