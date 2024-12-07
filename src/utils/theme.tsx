@@ -64,4 +64,27 @@ export const theme = createTheme({
       },
     },
   },
+  components: {
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            backgroundColor: '#2264E5',
+            color: 'white',
+
+            span: {
+              fontWeight: 700,
+            },
+          },
+          '&.Mui-selected:hover': {
+            backgroundColor: '#115293',
+
+            span: {
+              fontWeight: 700,
+            },
+          },
+        },
+      },
+    },
+  },
 })
