@@ -9,6 +9,10 @@ const SidebarButtons = () => {
   const [loadConfirmOpen, setLoadConfirmOpen] = useState(false)
   const [loadSuccessOpen, setLoadSuccessOpen] = useState(false)
 
+  const handleFileUpload = () => {
+    setLoadSuccessOpen(true)
+  }
+
   return (
     <>
       <Stack spacing={2} justifyContent="center" alignItems="center">
@@ -37,6 +41,7 @@ const SidebarButtons = () => {
       <LoadConfirmationDialog
         open={loadConfirmOpen}
         handleClose={() => setLoadConfirmOpen(false)}
+        onFileUpload={handleFileUpload}
       />
       <LoadConfirmationSuccessDialog
         open={loadSuccessOpen}

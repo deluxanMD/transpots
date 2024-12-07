@@ -10,9 +10,14 @@ import { useRef } from 'react'
 
 type LCDProps = {
   handleClose: () => void
+  onFileUpload: (event: any) => void
 } & DialogProps
 
-const LoadConfirmationDialog = ({ open, handleClose }: LCDProps) => {
+const LoadConfirmationDialog = ({
+  open,
+  handleClose,
+  onFileUpload,
+}: LCDProps) => {
   const theme = useTheme()
   const fileInputRef = useRef<HTMLInputElement | null>(null)
 
@@ -24,6 +29,7 @@ const LoadConfirmationDialog = ({ open, handleClose }: LCDProps) => {
     const file = event.target.files[0]
     if (file) {
       console.log('File selected:', file)
+      handleClose()
     }
   }
 
@@ -41,7 +47,10 @@ const LoadConfirmationDialog = ({ open, handleClose }: LCDProps) => {
               type="file"
               style={{ display: 'none' }}
               ref={fileInputRef}
-              onChange={handleFileUpload}
+              onChange={(event: any) => {
+                handleFileUpload(event)
+                onFileUpload(event)
+              }}
             />
           </LCDialogLink>
         </LCDialogText>

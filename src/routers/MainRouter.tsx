@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Home from '../pages/home/Home'
+import HomePage from '../pages/home/home.page'
 import OrderPage from '../pages/order/order-page'
 import MainLayout from '../layouts/main-layout/main-layout'
 import TripPage from '../pages/trip/trip.page'
@@ -15,7 +15,7 @@ const MainRouter = () => {
       children: [
         {
           path: '/',
-          element: <Home />,
+          element: <HomePage />,
         },
         {
           path: 'order',
