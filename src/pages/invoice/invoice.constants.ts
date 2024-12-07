@@ -25,3 +25,12 @@ export const invoiceChips: Tab[] = [
   { id: 'o60', label: 'Over 60 Days' },
   { id: 'o90', label: 'Over 90 Days' },
 ]
+
+export const invoiceTableHeaders: Tab[] = [
+  { id: 'invoice', label: 'Invoice#' },
+  { id: 'company', label: 'Company' },
+  { id: 'aging', label: 'Aging' },
+  { id: 'amount', label: 'Amount' },
+  { id: 'documents', label: 'Documents' },
+  { id: 'action', label: 'Action' },
+]
