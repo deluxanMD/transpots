@@ -68,7 +68,6 @@ export const theme = createTheme({
     MuiListItemButton: {
       styleOverrides: {
         root: {
-          borderBottom: '1px solid #EBEBEB',
           '&.Mui-selected': {
             backgroundColor: '#2264E5',
             color: 'white',
