@@ -57,7 +57,7 @@ const InvoicesTableHeaders = () => {
               )
             case 5:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 250 }}>
+                <StyledTableCell key={header.id} sx={{ minWidth: 280 }}>
                   {header.label}
                 </StyledTableCell>
               )
