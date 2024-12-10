@@ -5,13 +5,13 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material'
-import { invoiceTableHeaders } from '../../../invoice.constants'
+import { invoiceEditTableHeaders } from '../../../invoice.constants'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.secondary.light,
     padding: '4px 12px',
-    fontWeight: 400,
+    fontWeight: 300,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -19,33 +19,33 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }))
 
-const InvoicesTableHeaders = () => {
+const InvoiceEditTableHeader = () => {
   return (
     <TableHead>
       <TableRow>
-        {invoiceTableHeaders.map((header, index) => {
+        {invoiceEditTableHeaders.map((header, index) => {
           switch (index) {
             case 0:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 140 }}>
+                <StyledTableCell key={header.id} sx={{ minWidth: 150 }}>
                   {header.label}
                 </StyledTableCell>
               )
             case 1:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 120 }}>
+                <StyledTableCell key={header.id} sx={{ minWidth: 250 }}>
                   {header.label}
                 </StyledTableCell>
               )
             case 2:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 80 }}>
+                <StyledTableCell key={header.id} sx={{ minWidth: 150 }}>
                   {header.label}
                 </StyledTableCell>
               )
             case 3:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 80 }}>
+                <StyledTableCell key={header.id} sx={{ minWidth: 120 }}>
                   {header.label}
                 </StyledTableCell>
               )
@@ -57,7 +57,13 @@ const InvoicesTableHeaders = () => {
               )
             case 5:
               return (
-                <StyledTableCell key={header.id} sx={{ minWidth: 280 }}>
+                <StyledTableCell key={header.id}>
+                  {header.label}
+                </StyledTableCell>
+              )
+            case 6:
+              return (
+                <StyledTableCell key={header.id} sx={{ minWidth: 180 }}>
                   {header.label}
                 </StyledTableCell>
               )
@@ -68,4 +74,4 @@ const InvoicesTableHeaders = () => {
   )
 }
 
-export default InvoicesTableHeaders
+export default InvoiceEditTableHeader

@@ -5,6 +5,7 @@ import { InvoiceDetail } from '../../../invoice.type'
 import InvoiceTableCell from '../invoice-table-cell/invoice-table-cell'
 import InvoiceTableDocuments from '../invoice-table-documents/invoice-table-documents'
 import InvoiceTableActions from '../invoice-table-actions/invoice-table-actions'
+import InvoiceTableCompany from '../invoice-table-company/invoice-table-company'
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(even)': {
@@ -18,46 +19,59 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const InvoiceTableBody = () => {
   const rows = useSelector((state: RootState) => state.invoices.rows)
+  const tab = useSelector((state: RootState) => state.invoices.tabSelected)
 
   return (
     <TableBody>
       {rows.map((row: InvoiceDetail, index) => {
-        const { age, amount, company, invoiceId, invoiceLabel, invoiceStatus } =
-          row
+        const {
+          age,
+          amount,
+          company,
+          invoiceId,
+          invoiceLabel,
+          invoiceStatus,
+          status,
+        } = row
         return (
-          <StyledTableRow key={index}>
-            <InvoiceTableCell
-              value1={invoiceLabel}
-              value2={invoiceId}
-              minWidth={150}
-              {...row}
-            />
-            <InvoiceTableCell
-              value1={company}
-              value2={invoiceStatus}
-              minWidth={150}
-              {...row}
-            />
-            <InvoiceTableCell
-              value1={age}
-              value2={'Days'}
-              minWidth={150}
-              {...row}
-            />
-            <InvoiceTableCell
-              value1={`$${amount}`}
-              value2={'CAD'}
-              minWidth={150}
-              {...row}
-            />
-            <InvoiceTableDocuments align="left" />
-            <InvoiceTableActions align="left" />
-            {/* <TripDetailsTableAction
+          tab === status && (
+            <StyledTableRow key={index}>
+              <InvoiceTableCell
+                value1={invoiceLabel}
+                value2={invoiceId}
+                minWidth={150}
+                {...row}
+              />
+              <InvoiceTableCompany
+                company={company}
+                invoiceStatus={invoiceStatus}
+                minWidth={150}
+              />
+              <InvoiceTableCell
+                value1={age}
+                value2={'Days'}
+                minWidth={150}
+                {...row}
+              />
+              <InvoiceTableCell
+                value1={`$${amount.toFixed(2)}`}
+                value2={'CAD'}
+                minWidth={150}
+                {...row}
+              />
+              <InvoiceTableDocuments align="left" />
+              <InvoiceTableActions
+                align="left"
+                disabled={invoiceStatus === 'sent_invoice'}
+                invoiceId={invoiceId}
+              />
+              {/* <TripDetailsTableAction
               currentRow={row}
               prevRow={rows[index - 1]}
               nextRow={rows[index + 1]}
             /> */}
-          </StyledTableRow>
+            </StyledTableRow>
+          )
         )
       })}
     </TableBody>

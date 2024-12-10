@@ -8,6 +8,7 @@ const TextInputField = ({
   label,
   placeholder = 'Answer',
   highlight,
+  value,
   ...rest
 }: TextInputFieldProps) => {
   return (
@@ -20,7 +21,12 @@ const TextInputField = ({
       >
         {label}
       </InputLabel>
-      <TextField placeholder={placeholder} size="small" {...rest} />
+      <TextField
+        placeholder={placeholder}
+        size="small"
+        value={value}
+        {...rest}
+      />
     </Stack>
   )
 }

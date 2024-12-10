@@ -5,12 +5,16 @@ import TabPanel from '../../../components/tabs/tab-panel/tab-panel.component'
 import InvoiceToBe from './invoice-to-be/invoice-to-be'
 import InvoiceNotPaid from './invoice-not-paid/invoice-not-paid'
 import InvoicePaid from './invoice-paid/invoice-paid'
+import { useDispatch } from 'react-redux'
+import { selectInvoiceTab } from '../../../store/invoices/invoices.slice'
 
 const InvoiceSelection = () => {
   const [tabsValue, setTabsValue] = React.useState(0)
+  const dispatch = useDispatch()
 
   const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabsValue(newValue)
+    dispatch(selectInvoiceTab({ index: newValue }))
   }
 
   return (
