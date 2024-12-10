@@ -1,3 +1,26 @@
+type Billing = {
+  from: {
+    company: string
+    email: string
+  }
+  to: {
+    company: string
+  }
+  invoiceDate: string
+  dueDate: string
+  loadId: string
+}
+
+export type Line = {
+  lineId: string
+  lineName: string
+  description: string
+  rate: number
+  quantity: number
+  total: number
+  taxable: boolean
+}
+
 export type InvoiceDetail = {
   invoiceLabel: string
   invoiceId: string
@@ -10,4 +33,5 @@ export type InvoiceDetail = {
   status: 'tobe_invoiced' | 'not_paid' | 'paid'
   age: number
   amount: number
+  billing: Billing
 }

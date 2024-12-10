@@ -8,9 +8,13 @@ import {
 } from '@mui/material'
 import Edit from '../../../../../assets/icons/EditBlue.png'
 import Delete from '../../../../../assets/icons/Delete.png'
+import { useDispatch } from 'react-redux'
+import { editInvoice } from '../../../../../store/invoices/invoices.slice'
+import { useNavigate } from 'react-router-dom'
 
 type InvoiceTableCellProps = {
   disabled?: boolean
+  invoiceId: string
 } & TypographyProps
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -28,7 +32,16 @@ const InvoiceTableActions = ({
   minWidth,
   align,
   disabled,
+  invoiceId,
 }: InvoiceTableCellProps) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleEdit = () => {
+    dispatch(editInvoice({ invoiceId }))
+    navigate(invoiceId)
+  }
+
   return (
     <StyledTableCell sx={{ minWidth }} align={align}>
       <Stack direction="row" alignItems="center" spacing={1}>
@@ -50,6 +63,7 @@ const InvoiceTableActions = ({
           width={36}
           height={36}
           style={{ cursor: 'pointer' }}
+          onClick={handleEdit}
         />
         <img
           src={Delete}

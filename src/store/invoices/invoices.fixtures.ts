@@ -17,6 +17,43 @@ const makeNewInvoice = (
   age: 30,
   amount: 575.5,
   status,
+  billing: {
+    from: {
+      company: 'Apotex Transports Inc',
+      email: 'billing@apotex.com',
+    },
+    to: {
+      company: 'Excel Transportation',
+    },
+    invoiceDate: 'Sep 28, 2024',
+    dueDate: 'Oct 26, 2024',
+    loadId: 'LOAD0001',
+    // amount: {
+    //   lines: [
+    //     {
+    //       lineId: 'LINE01',
+    //       lineName: 'Base Rate',
+    //       description: 'Ajax to Scarborough',
+    //       rate: 1100,
+    //       quantity: 2,
+    //     },
+    //     {
+    //       lineId: 'LINE02',
+    //       lineName: 'Waiting Time',
+    //       description: 'At Shipper',
+    //       rate: 100,
+    //       quantity: 2,
+    //     },
+    //     {
+    //       lineId: 'LINE03',
+    //       lineName: 'Extra',
+    //       description: 'Extra',
+    //       rate: 100,
+    //       quantity: 1,
+    //     },
+    //   ],
+    // },
+  },
 })
 
 export const invoicesFixture: InvoiceDetail[] = [

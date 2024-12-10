@@ -36,7 +36,16 @@ const MainRouter = () => {
         },
         {
           path: 'invoice',
-          element: <InvoicePage />,
+          children: [
+            {
+              index: true,
+              element: <InvoicePage />,
+            },
+            {
+              path: ':invoiceId',
+              element: <InvoicePage />,
+            },
+          ],
         },
         {
           path: 'integration',

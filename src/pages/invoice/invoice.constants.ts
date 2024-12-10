@@ -34,3 +34,13 @@ export const invoiceTableHeaders: Tab[] = [
   { id: 'documents', label: 'Documents' },
   { id: 'action', label: 'Action' },
 ]
+
+export const invoiceEditTableHeaders: Tab[] = [
+  { id: 'lineName', label: 'Line Name' },
+  { id: 'description', label: 'Description' },
+  { id: 'rate', label: 'Rate' },
+  { id: 'qty', label: 'Qty' },
+  { id: 'lineTotal', label: 'Line Total' },
+  { id: 'tax', label: 'Tax' },
+  { id: 'action', label: 'Action' },
+]

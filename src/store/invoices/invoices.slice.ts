@@ -38,9 +38,16 @@ export const invoiceSlice = createSlice({
     ) => {
       console.log(`View invoice ${invoiceId}`)
     },
+    editInvoice: (
+      state,
+      { payload: { invoiceId } }: PayloadAction<{ invoiceId: string }>
+    ) => {
+      console.log(invoiceId)
+    },
   },
 })
 
-export const { viewInvoice, selectInvoiceTab } = invoiceSlice.actions
+export const { viewInvoice, selectInvoiceTab, editInvoice } =
+  invoiceSlice.actions
 
 export default invoiceSlice.reducer

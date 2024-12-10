@@ -63,6 +63,7 @@ const InvoiceTableBody = () => {
               <InvoiceTableActions
                 align="left"
                 disabled={invoiceStatus === 'sent_invoice'}
+                invoiceId={invoiceId}
               />
               {/* <TripDetailsTableAction
               currentRow={row}
