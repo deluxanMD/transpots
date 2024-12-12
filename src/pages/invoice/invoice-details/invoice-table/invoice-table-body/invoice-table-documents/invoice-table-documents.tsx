@@ -1,27 +1,10 @@
-import {
-  Button,
-  Stack,
-  styled,
-  TableCell,
-  tableCellClasses,
-  TypographyProps,
-} from '@mui/material'
-import Plus from '../../../../../assets/icons/Plus Button.png'
+import { Button, Stack, TypographyProps } from '@mui/material'
+import Plus from '../../../../../../assets/icons/Plus Button.png'
+import { StyledTableCell } from '../invoice-table-body'
 
 type InvoiceTableCellProps = {
   disabled?: boolean
 } & TypographyProps
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.common.white,
-    // padding: '4px 12px',
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-    // padding: '4px 12px',
-  },
-}))
 
 const InvoiceTableDocuments = ({ minWidth, align }: InvoiceTableCellProps) => {
   return (

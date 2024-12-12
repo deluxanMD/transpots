@@ -1,9 +1,9 @@
 import { styled, TableBody, TableRow } from '@mui/material'
 import InvoiceEditTableCell from '../invoice-edit-table-cell/invoice-edit-table-cell'
 import { Line } from '../../../invoice.type'
-import InvoiceEditTableTax from '../invoice-edit-table-tax/invoice-edit-table-tax'
+import InvoiceEditTableTax from './invoice-edit-table-tax/invoice-edit-table-tax'
 import { ChangeEvent, Dispatch, SetStateAction } from 'react'
-import InvoiceEditTableActons from '../invoice-edit-table-actions/invoice-edit-table-actions'
+import InvoiceEditTableActons from './invoice-edit-table-actions/invoice-edit-table-actions'
 
 type InvoiceEditTableBodyProps = {
   lines: Line[]

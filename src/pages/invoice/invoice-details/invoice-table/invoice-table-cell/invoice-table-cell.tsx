@@ -1,11 +1,6 @@
-import {
-  styled,
-  TableCell,
-  tableCellClasses,
-  Typography,
-  TypographyProps,
-} from '@mui/material'
+import { Typography, TypographyProps } from '@mui/material'
 import { ReactNode } from 'react'
+import { StyledTableCell } from '../invoice-table-body/invoice-table-body'
 
 type InvoiceTableCellProps = {
   disabled?: boolean
@@ -13,17 +8,6 @@ type InvoiceTableCellProps = {
   value2?: string
   children?: ReactNode
 } & TypographyProps
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.common.white,
-    // padding: '4px 12px',
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-    // padding: '4px 12px',
-  },
-}))
 
 const InvoiceTableCell = ({
   disabled,
