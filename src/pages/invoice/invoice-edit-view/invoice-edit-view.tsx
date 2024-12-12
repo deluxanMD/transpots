@@ -3,7 +3,7 @@ import InvoiceEditTable from '../invoice-details/invoice-edit-table/invoice-edit
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store'
 import { useMemo } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import InvoiceEditViewFrom from './invoice-edit-view-from/invoice-edit-view-from'
 import InvoiceEditViewTo from './invoice-edit-view-to/invoice-edit-view-to'
 import ActionButtons from '../../../components/action-buttons/action-buttons.component'
@@ -11,6 +11,7 @@ import ActionButtons from '../../../components/action-buttons/action-buttons.com
 const InvoiceEditView = () => {
   const rows = useSelector((state: RootState) => state.invoices.rows)
   const { invoiceId } = useParams()
+  const navigate = useNavigate()
 
   const invoice = useMemo(() => {
     return rows.filter((row) => row.invoiceId === invoiceId)[0]
@@ -30,10 +31,12 @@ const InvoiceEditView = () => {
         firstBtnProps={{
           title: 'Cancel',
           bgColor: 'secondary.main',
+          onClick: () => navigate('/invoice'),
         }}
         secondBtnProps={{
           title: 'Save',
           bgColor: 'primary.main',
+          onClick: () => navigate('/invoice'),
         }}
       />
     </Stack>

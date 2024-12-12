@@ -1,7 +1,10 @@
 import { useMemo } from 'react'
 import { Line } from '../../../../invoice.type'
 
-export const useInvoiceEditTableTotal = (lines: Line[]) => {
+export const useInvoiceEditTableTotal = (
+  lines: Line[],
+  taxPercentage: number | undefined
+) => {
   const subtotal = useMemo(
     () =>
       lines.reduce((acc, curr) => {
@@ -11,9 +14,9 @@ export const useInvoiceEditTableTotal = (lines: Line[]) => {
     [lines]
   )
 
-  const tax = subtotal * 0.05
+  const taxedValue = taxPercentage ? subtotal * (taxPercentage / 100) : 0
 
-  const total = subtotal + tax
+  const total = subtotal + taxedValue
 
-  return { subtotal, tax, total }
+  return { subtotal, taxedValue, total }
 }
