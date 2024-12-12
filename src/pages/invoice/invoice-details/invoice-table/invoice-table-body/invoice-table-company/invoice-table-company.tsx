@@ -1,11 +1,6 @@
-import {
-  styled,
-  TableCell,
-  tableCellClasses,
-  Typography,
-  TypographyProps,
-} from '@mui/material'
-import { formatString } from '../../../../../utils/typography'
+import { Typography, TypographyProps } from '@mui/material'
+import { StyledTableCell } from '../invoice-table-body'
+import { formatString } from '../../../../../../utils/typography'
 
 type InvoiceTableCompanyProps = {
   company: string
@@ -15,17 +10,6 @@ type InvoiceTableCompanyProps = {
     | 'sent_invoice'
     | 'not_sent_invoice'
 } & TypographyProps
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.common.white,
-    // padding: '4px 12px',
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-    // padding: '4px 12px',
-  },
-}))
 
 const InvoiceTableCompany = ({
   minWidth,

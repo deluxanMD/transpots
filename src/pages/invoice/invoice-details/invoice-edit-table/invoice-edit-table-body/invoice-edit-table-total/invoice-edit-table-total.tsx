@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/material'
-import { Line } from '../../../invoice.type'
+import { Line } from '../../../../invoice.type'
 import { useInvoiceEditTableTotal } from './invoice-edit-table-total.hooks'
 
 type InvoiceEditTableTotalProps = {

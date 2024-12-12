@@ -20,6 +20,7 @@ const SelectField = ({
   hideLabel = false,
   value,
   onChange,
+  ...rest
 }: SelectDriverProps) => {
   const theme = useTheme()
 
@@ -48,6 +49,7 @@ const SelectField = ({
               style={{ marginRight: '10px' }}
             />
           )}
+          {...rest}
         >
           {!hideLabel && <MenuItem value="Select Driver">{label}</MenuItem>}
           {options.map((option) => (

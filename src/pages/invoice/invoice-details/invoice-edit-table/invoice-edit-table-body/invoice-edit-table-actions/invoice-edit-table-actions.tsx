@@ -1,7 +1,7 @@
 import { Stack, styled, TableCell, tableCellClasses } from '@mui/material'
-import DownArrow from '../../../../../assets/icons/DownArrow.png'
-import UpArrow from '../../../../../assets/icons/UpArrow.png'
-import Delete from '../../../../../assets/icons/Delete.png'
+import DownArrow from '../../../../../../assets/icons/DownArrow.png'
+import UpArrow from '../../../../../../assets/icons/UpArrow.png'
+import Delete from '../../../../../../assets/icons/Delete.png'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {

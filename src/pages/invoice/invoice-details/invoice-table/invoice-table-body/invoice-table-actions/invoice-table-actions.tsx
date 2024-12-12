@@ -1,32 +1,15 @@
-import {
-  Button,
-  Stack,
-  styled,
-  TableCell,
-  tableCellClasses,
-  TypographyProps,
-} from '@mui/material'
-import Edit from '../../../../../assets/icons/EditBlue.png'
-import Delete from '../../../../../assets/icons/Delete.png'
+import { Button, Stack, TypographyProps } from '@mui/material'
+import Edit from '../../../../../../assets/icons/Edit.png'
+import Delete from '../../../../../../assets/icons/Delete.png'
 import { useDispatch } from 'react-redux'
-import { editInvoice } from '../../../../../store/invoices/invoices.slice'
 import { useNavigate } from 'react-router-dom'
+import { editInvoice } from '../../../../../../store/invoices/invoices.slice'
+import { StyledTableCell } from '../invoice-table-body'
 
 type InvoiceTableCellProps = {
   disabled?: boolean
   invoiceId: string
 } & TypographyProps
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.common.white,
-    // padding: '4px 12px',
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-    // padding: '4px 12px',
-  },
-}))
 
 const InvoiceTableActions = ({
   minWidth,

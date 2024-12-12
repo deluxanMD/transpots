@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Line } from '../../../invoice.type'
+import { Line } from '../../../../invoice.type'
 
 export const useInvoiceEditTableTotal = (lines: Line[]) => {
   const subtotal = useMemo(

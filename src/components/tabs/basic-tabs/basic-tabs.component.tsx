@@ -7,9 +7,16 @@ type BasicTabsProps = {
   value: number
   handleChange: (_event: React.SyntheticEvent, newValue: number) => void
   children: React.ReactNode
+  hideDivider?: boolean
 } & TabsProps
 
-const BasicTabs = ({ tabs, value, handleChange, children }: BasicTabsProps) => {
+const BasicTabs = ({
+  tabs,
+  value,
+  handleChange,
+  hideDivider = false,
+  children,
+}: BasicTabsProps) => {
   return (
     <Box>
       <Box
@@ -45,7 +52,9 @@ const BasicTabs = ({ tabs, value, handleChange, children }: BasicTabsProps) => {
             />
           ))}
         </Tabs>
-        <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
+        {!hideDivider && (
+          <Divider sx={{ border: 0.6, color: 'secondary.main' }} />
+        )}
       </Box>
       {children}
     </Box>

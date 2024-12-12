@@ -4,7 +4,7 @@ import InvoiceEditTableHeader from './invoice-edit-table-header/invoice-edit-tab
 import InvoiceEditTableBody from './invoice-edit-table-body/invoice-edit-table-body'
 import { Line } from '../../invoice.type'
 import InvoiceEditTableNotes from './invoice-edit-table-notes/invoice-edit-table-notes'
-import InvoiceEditTableTotal from './invoice-edit-table-total/invoice-edit-table-total'
+import InvoiceEditTableTotal from './invoice-edit-table-body/invoice-edit-table-total/invoice-edit-table-total'
 import { AddLine, NotesContainer } from './invoice-edit-table.styles'
 import { DateTime } from 'luxon'
 
