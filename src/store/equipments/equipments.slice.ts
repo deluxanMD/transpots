@@ -34,6 +34,13 @@ export const equipmentSlice = createSlice({
     ) => {
       state.selectedEquipment = equipment
     },
+    clearSelection: (state) => {
+      state.selectedEquipment = {
+        id: '',
+        name: '',
+        type: 'tractor',
+      }
+    },
     deleteEquipment: (
       state,
       { payload: { id } }: PayloadAction<{ id: string }>
@@ -50,7 +57,7 @@ export const equipmentSlice = createSlice({
   },
 })
 
-export const { selectTab, selectEquipment, deleteEquipment } =
+export const { selectTab, selectEquipment, clearSelection, deleteEquipment } =
   equipmentSlice.actions
 
 export default equipmentSlice.reducer
