@@ -6,6 +6,7 @@ import TripPage from '../pages/trip/trip.page'
 import IntegrationPage from '../pages/integration/integration.page'
 import VerifyOrderPage from '../pages/verify-order/verify-order.page'
 import InvoicePage from '../pages/invoice/invoice.page'
+import EquipmentPage from '../pages/equipment/equipment.page'
 
 const MainRouter = () => {
   const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const MainRouter = () => {
               element: <InvoicePage />,
             },
           ],
+        },
+        {
+          path: 'equipment',
+          element: <EquipmentPage />,
         },
         {
           path: 'integration',
