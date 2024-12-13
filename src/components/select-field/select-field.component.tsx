@@ -20,6 +20,7 @@ const SelectField = ({
   hideLabel = false,
   value,
   onChange,
+  fullWidth,
   ...rest
 }: SelectDriverProps) => {
   const theme = useTheme()
@@ -27,7 +28,7 @@ const SelectField = ({
   return (
     <Stack direction="row" alignItems="center" spacing={2}>
       {!hideLabel && <Typography sx={{ fontWeight: 300 }}>{label}</Typography>}
-      <FormControl>
+      <FormControl sx={{ width: fullWidth ? '100%' : 'auto' }}>
         <DriverSelect
           labelId="select-field"
           id="select-field"
