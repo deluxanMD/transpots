@@ -18,30 +18,32 @@ const EquipmentSelection = () => {
   }
 
   return (
-    <BasicTabsWithSearch
-      tabs={equipmentTabs}
-      value={tabsValue}
-      handleChange={handleChange}
-    >
-      <TabPanel value={tabsValue} index={0}>
-        <Stack
-          justifyContent="space-between"
-          sx={{ minHeight: 'calc(100vh - 200px)' }}
-        >
-          <EquipmentSelectionList selectedTab="tractor" />
-          <EquipmentAddButton />
-        </Stack>
-      </TabPanel>
-      <TabPanel value={tabsValue} index={1}>
-        <Stack
-          justifyContent="space-between"
-          sx={{ minHeight: 'calc(100vh - 200px)' }}
-        >
-          <EquipmentSelectionList selectedTab="trailer" />
-          <EquipmentAddButton />
-        </Stack>
-      </TabPanel>
-    </BasicTabsWithSearch>
+    <>
+      <BasicTabsWithSearch
+        tabs={equipmentTabs}
+        value={tabsValue}
+        handleChange={handleChange}
+      >
+        <TabPanel value={tabsValue} index={0}>
+          <Stack
+            justifyContent="space-between"
+            sx={{ minHeight: 'calc(100vh - 200px)' }}
+          >
+            <EquipmentSelectionList selectedTab="tractor" />
+            <EquipmentAddButton />
+          </Stack>
+        </TabPanel>
+        <TabPanel value={tabsValue} index={1}>
+          <Stack
+            justifyContent="space-between"
+            sx={{ minHeight: 'calc(100vh - 200px)' }}
+          >
+            <EquipmentSelectionList selectedTab="trailer" />
+            <EquipmentAddButton />
+          </Stack>
+        </TabPanel>
+      </BasicTabsWithSearch>
+    </>
   )
 }
 
