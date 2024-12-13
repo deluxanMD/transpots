@@ -4,7 +4,7 @@ import React from 'react'
 const EquipmentRegistration = () => {
   return (
     <Box p={2}>
-      <Typography>coming soon...</Typography>
+      <Typography>Details</Typography>
     </Box>
   )
 }
